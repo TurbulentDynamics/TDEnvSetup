@@ -13,7 +13,7 @@ parser = argparse.ArgumentParser(description='LBM sizing')
 
 parser.add_argument('-n', action="store", dest="n", default=1, type=int, help="Number of Nodes (default 1)")
 
-parser.add_argument('-t', action="store", dest="target", default=4, type=int, help="Target gb per core (default 4)")
+#parser.add_argument('-t', action="store", dest="target", default=4, type=int, help="Target gb per core (default 4)")
 parser.add_argument('-c', action="store", dest="cores", default=4, type=int, help="Number of cores available per node (default 1)")
 
 parser.add_argument('-q', action="store", dest="q", default=19, choices=(9,19,27),  help="Number of Vectors (default 27)")
