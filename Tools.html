@@ -199,9 +199,9 @@
 				    if (nodes == 1)
 				        txtMsg.push("Need 1 node with {0} available for cube of nx={1}".format(sizeText(size), snx));
 				    else
-				        txtMsg.push("Need %s nodes with {0} each for cube of nx={1} (total {2})".format(nodes, sizeText(size / nodes), snx, sizeText(size)));
+                        txtMsg.push("Need {0} nodes with {1} each for cube of nx={2} (total {3})".format(nodes, sizeText(size / nodes), snx, sizeText(size)));
 
-				    txtMsg.push("Size of output vectors {0}, or per node {1}".format(sizeText(output_size), sizeText(output_size / nodes)));
+				    txtMsg.push("Size of cube of output vectors {0}, or per node {1}".format(sizeText(output_size), sizeText(output_size / nodes)));
 				    txtMsg.push("Size of output plane (slice) vectors {0}, or per node {1}".format(sizeText(output_plane_size), sizeText(output_plane_size / nodes)));
 
 				    txtMsg.push("Works out at {0} per core, with {1} core{2}".format(sizeText(size / nodes / cores), cores, cores > 1 ? 's' : ''));
