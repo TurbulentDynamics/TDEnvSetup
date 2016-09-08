@@ -1,7 +1,7 @@
 # Dev Help for working with Turbulent Dynamics
 
 
-[vars](vars.html)
+[vars](vars.md)
 
 
 
