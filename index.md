@@ -11,7 +11,7 @@ This document gives some guidelines to contributing code to Turbulent Dynamics.
  
  ### Utilities
  
- [Size Calculator](tools/calc-sizes.html) for setting dimensions of the lattice
+ * [Size Calculator](tools/calc-sizes.html) for setting dimensions of the lattice.
 
 
 ### Coordinate system
