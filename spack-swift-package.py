@@ -11,14 +11,16 @@ class Swift(Package):
 """
 
     homepage = "https://swift.org"
-    url      = "https://swift.org/builds/swift-4.2.1-release/ubuntu1604/swift-4.2.1-RELEASE/swift-4.2.1-RELEASE-ubuntu16.04.tar.gz"
+    url      = "https://github.com/apple/swift/archive/swift-4.2.1-RELEASE.tar.gz"
+    git      = "https://github.com/apple/swift"
+    
     version('4.2.1-RELEASE-ubuntu16.04', sha256='4a17bef7b02bb6480cd72282fd67463c12131bad013b79bc721c8cb2a5b83fd1')
-
+       
     family = 'compiler'  # Used by lmod
-
+    
+    
     #depends_on('git')
-    #depends_on('cmake@3.4.3:', type='build')
-    depends_on('cmake')
+    depends_on('cmake@3.4.3:', type='build')
     depends_on('ninja')
     depends_on('llvm' )
     #depends_on('python')
