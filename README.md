@@ -1,23 +1,24 @@
 # Turbulent Dynamics Environment setup
 
 
-* Install brew first on both MacOS and Linux
-* Install spack and some application
-* Install python modules
-* Install other applications
+* [Install brew first on both MacOS and Linux](env-setup/install-0-brew.md)
+* [Install spack and some application](env-setup/install-1-with-space.md)
+* [Install python modules](env-setup/install-2-python-modules.md)
+
+* [Install Nvidia CUDA + ML Tools](env-setup/nvidia-for-Ubuntu-16-04.md)
+* [Use Spack to install Swift (WIP))](env-setup/spack-swift-package.py)
+* [Install Swift on Ubuntu](env-setup/swift-for-ubuntu.md)
 
 
-# Turbulent Dynamics Coding Guidlines
-This document gives some guidelines to contributing code to Turbulent Dynamics.
+# Turbulent Dynamics Coding Guidelines
 
-[View this on turbulentdynamics.github.io/dev-help/](https://turbulentdynamics.github.io/dev-help/)
+[View this on turbulentdynamics.github.io/dev-help/](https://turbulentdynamics.github.io/TD-env-setup-dev-help/)
 
 ### Some Visualisations
- * [Vector Identifiers](https://turbulentdynamics.github.io/dev-help/graphics/arrows.html) The vectors are numbered differently than usual LBM implementations
- * [Item Identifiers](https://turbulentdynamics.github.io/dev-help/graphics/cube.html) The cells in the outer shell of the lattice grid has been given an itentification
- * [Visualisation 1000 cubes](https://turbulentdynamics.github.io/dev-help/graphics/1000.html) 
+ * [Vector Identifiers](https://turbulentdynamics.github.io/TD-env-setup-dev-help/graphics/arrows.html) The vectors are numbered differently than usual LBM implementations
+ * [Item Identifiers](https://turbulentdynamics.github.io/TD-env-setup-dev-help/graphics/cube.html) The cells in the outer shell of the lattice grid has been given an identification
+ * [Visualisation 1000 cubes](https://turbulentdynamics.github.io/TD-env-setup-dev-help/graphics/1000.html)
 
 
-### Utilities 
- * [Size Calculator](https://turbulentdynamics.github.io/dev-help/tools/calc-sizes.html) for setting dimensions of the lattice.
-
+### Utilities
+ * [Size Calculator](https://turbulentdynamics.github.io/TD-env-setup-dev-help/tools/calc-sizes.html) for setting dimensions of the lattice.
