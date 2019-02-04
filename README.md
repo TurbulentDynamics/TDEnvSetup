@@ -2,7 +2,7 @@
 
 
 * [Install brew first on both MacOS and Linux](env-setup/install-0-brew.md)
-* [Install spack and some application](env-setup/install-1-with-space.md)
+* [Install spack and some applications](env-setup/install-1-with-spack.md)
 * [Install python modules](env-setup/install-2-python-modules.md)
 
 * [Install Nvidia CUDA + ML Tools](env-setup/nvidia-for-Ubuntu-16-04.md)
