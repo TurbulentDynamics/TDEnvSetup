@@ -5,9 +5,9 @@
 * [Install spack and some applications](env-setup/install-1-with-spack.md)
 * [Install python modules](env-setup/install-2-python-modules.md)
 
-* [Install Nvidia CUDA + ML Tools](env-setup/nvidia-for-Ubuntu-16-04.md)
-* [Use Spack to install Swift (WIP))](env-setup/spack-swift-package.py)
-* [Install Swift on Ubuntu](env-setup/swift-for-ubuntu.md)
+* [Install Nvidia CUDA + Machine Learning Tools](env-setup/nvidia-for-Ubuntu-16-04.md)
+* [Use Spack to install Swift (WIP)](env-setup/spack-swift-package.py)
+* [Install Swift on Ubuntu (WIP)](env-setup/swift-for-ubuntu.md)
 
 
 # Turbulent Dynamics Coding Guidelines
