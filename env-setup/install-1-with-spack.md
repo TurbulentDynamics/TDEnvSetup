@@ -8,9 +8,10 @@
 cd ~
 git clone https://github.com/spack/spack.git
 
-echo "export SPACK_ROOT=~/spack">>~/.bashrc
-echo "export PATH=$SPACK_ROOT/bin:$PATH">>~/.bashrc
-echo ". $SPACK_ROOT/share/spack/setup-env.sh">>~/.bashrc
+echo 'export SPACK_ROOT=~/spack'>>~/.bashrc
+echo 'export PATH=$SPACK_ROOT/bin:$PATH'>>~/.bashrc
+echo '. $SPACK_ROOT/share/spack/setup-env.sh'>>~/.bashrc
+. ~/.bashrc
 spack bootstrap
 ```
 
@@ -20,13 +21,21 @@ spack install gcc@8.2.0
 module load gcc@8.2.0
 spack compiler find
 
-spack install cmake@3.12.3%gcc@8.2.0 openmpi@3.1.2%gcc@8.2.0 openmpi@2.1.5%gcc@8.2.0 
+CC=%gcc@8.2.0
 
+spack install cmake@3.12.3${CC} openmpi@3.1.2${CC} openmpi@2.1.5${CC} mpich@3.2.1${CC}
+spack install gcc@7.3.0${CC} gcc@6.4.0${CC} gcc@5.5.0${CC} rust@1.8.0${CC}
+spack install llvm@7.0.0${CC}
 spack install octave@4.2.1
+
+
+#Download pgi from pgroup.com and from the download directory
+#spack install pgi
 ```
 
-#For Linux
+#For Ubuntu Linux
 ```
+spack install swift
 spack install python@3.7.0%gcc@8.2.0 
 ```
 
