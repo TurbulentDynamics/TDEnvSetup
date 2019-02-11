@@ -5,14 +5,12 @@
 * [Install python modules](env-setup/install-2-python-modules.md)
 
 * [Install Nvidia CUDA and tools](env-setup/nvidia-for-Ubuntu-16-04.md)
-* [Install docker and nvidia-docker2](docker-nvidia.md)
-
-* [Build Base Container for Machine Learning](container-base-ml.md)
+* [Install docker and nvidia-docker2 and run TD_Base_ML container](docker-nvidia.md)
 
 
 
-* [Use Spack to install Swift (WIP)](env-setup/spack-swift-package.py)
-* [Install Swift on Ubuntu (WIP)](env-setup/swift-for-ubuntu.md)
+* [(WIP) Use Spack to install Swift](env-setup/spack-swift-package.py)
+* [(WIP) Install Swift on Ubuntu](env-setup/swift-for-ubuntu.md)
 
 
 # Turbulent Dynamics Coding Guidelines
