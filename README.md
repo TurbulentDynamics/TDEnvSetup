@@ -1,11 +1,16 @@
 # Turbulent Dynamics Environment setup
 
-
-* [Install brew first on both MacOS and Linux](env-setup/install-0-brew.md)
+* [Install brew on both MacOS and Linux](env-setup/install-0-brew.md)
 * [Install spack and some applications](env-setup/install-1-with-spack.md)
 * [Install python modules](env-setup/install-2-python-modules.md)
 
-* [Install Nvidia CUDA + Machine Learning Tools](env-setup/nvidia-for-Ubuntu-16-04.md)
+* [Install Nvidia CUDA and tools](env-setup/nvidia-for-Ubuntu-16-04.md)
+* [Install docker and nvidia-docker2](docker-nvidia.md)
+
+* [Build Base Container for Machine Learning](container-base-ml.md)
+
+
+
 * [Use Spack to install Swift (WIP)](env-setup/spack-swift-package.py)
 * [Install Swift on Ubuntu (WIP)](env-setup/swift-for-ubuntu.md)
 
