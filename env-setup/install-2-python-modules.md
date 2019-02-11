@@ -8,7 +8,7 @@ python get-pip.py
 ```
 
 ```
-pip3 install numpy scipy matplotlib
+pip3 install numpy scipy matplotlib dask
 pip3 install pandas 
 pip3 install jupyter
 ```
