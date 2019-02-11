@@ -5,8 +5,7 @@
 * [Install python modules](env-setup/install-2-python-modules.md)
 
 * [Install Nvidia CUDA and tools](env-setup/nvidia-for-Ubuntu-16-04.md)
-* [Install docker and nvidia-docker2 and run TD_Base_ML container](env-setup/docker-nvidia.md)
-
+* [Install docker, nvidia-docker2 and run TD_Base_ML container](env-setup/setup-nvidia-docker2-base-ml-container.md)
 
 
 * [(WIP) Use Spack to install Swift](env-setup/spack-swift-package.py)

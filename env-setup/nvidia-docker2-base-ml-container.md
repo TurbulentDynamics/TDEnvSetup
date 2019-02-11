@@ -33,5 +33,21 @@ sudo pkill -SIGHUP dockerd
 docker run --runtime=nvidia --rm nvidia/cuda nvidia-smi
 ```
  
- 
+## Build container
+```
+#This command will download nvidia container with tensorflow) and add some components (see Dockerfile.td_base_ml)
+docker build -f Dockerfile.td_base_ml -t td_base_ml /opt/containers
+
+docker image ls
+
+#To run the new interactive container
+nvidia-docker run -it --shm-size=1g --ulimit memlock=-1 --ulimit stack=67108864 -v /opt/path/to/fast/storage:/ml_data td_base_ml
+
+#Inside the container, run a few simple tests
+import keras
+
+import torch
+torch.cuda.is_available()
+
+``` 
  
