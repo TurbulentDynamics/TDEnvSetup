@@ -5,7 +5,7 @@
 * [Install python modules](env-setup/install-2-python-modules.md)
 
 * [Install Nvidia CUDA and tools](env-setup/nvidia-for-Ubuntu-16-04.md)
-* [Install docker and nvidia-docker2 and run TD_Base_ML container](docker-nvidia.md)
+* [Install docker and nvidia-docker2 and run TD_Base_ML container](env-setup/docker-nvidia.md)
 
 
 
