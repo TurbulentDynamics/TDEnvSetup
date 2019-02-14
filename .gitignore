@@ -31,3 +31,6 @@ get-pip.py
 *.exe
 *.out
 *.app
+
+#ide
+*.idea
