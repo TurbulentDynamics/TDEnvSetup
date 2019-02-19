@@ -22,7 +22,7 @@ export PATH=/usr/local/cuda-10.0/bin:$PATH
 ```cuda-install-samples-10.0.sh ~/nvidia-samples-10.0```
  
  
-## Install some usefull tools
+## Install some useful tools
 ```sudo apt-get install freeglut3-dev build-essential libx11-dev libxmu-dev libxi-dev libglu1-mesa libglu1-mesa-dev```
  
  

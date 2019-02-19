@@ -22,5 +22,3 @@
  * [Visualisation 1000 cubes](https://turbulentdynamics.github.io/TD_env_setup_dev_info/graphics/1000.html)
 
 
-### Utilities
- * [Size Calculator](https://turbulentdynamics.github.io/TD_env_setup_dev_info/tools/calc_sizes.html) for setting dimensions of the lattice.
