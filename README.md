@@ -6,7 +6,7 @@
 
 * [Install Nvidia CUDA and tools](env_setup/nvidia_for_Ubuntu_16_04.md)
 * [Install docker, nvidia-docker2 and run TD_Base_ML container](env_setup/nvidia_docker2_base_ml_container.md)
-
+* [Install singularity and run TD_Base_ML container](env_setup/singularity_base_ml_container.md)
 
 * [(WIP) Use Spack to install Swift](env_setup/spack_swift_package.py)
 * [(WIP) Install Swift on Ubuntu](env_setup/swift_for_ubuntu.md)
