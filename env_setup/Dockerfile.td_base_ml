@@ -1,14 +1,28 @@
 # Use an official Python runtime as a parent image
-FROM nvcr.io/nvidia/tensorflow:19.01-py3
+From docker://nvidia/cuda:10.0-cudnn7-devel-ubuntu16.04
 
-# Set the working directory to /app
-#WORKDIR /opt
 
-# Copy the current directory contents into the container at /app
-#ADD . /app
+# Define environment variable
+ENV SHELL=/bin/bash
+ENV export SHELL
+ENV export LC_ALL=C
+
+
+# additional packages
+RUN apt update
+RUN apt install -y curl wget vim clang libicu-dev python3
+
+
+# Install Apple Swift
+RUN wget https://swift.org/builds/swift-4.2.3-release/ubuntu1604/swift-4.2.3-RELEASE/swift-4.2.3-RELEASE-ubuntu16.04.tar
+.gz
+RUN tar xzf swift-4.2.3-RELEASE-ubuntu16.04.tar.gz -C /opt
+ENV PATH=/opt/swift-4.2.3-RELEASE-ubuntu16.04/usr/bin:"${PATH}"
 
 # Install any needed packages specified in requirements.txt
 RUN pip3 install --upgrade pip
+
+
 RUN pip3 install --trusted-host pypi.python.org dask pillow keras
 RUN pip3 install https://download.pytorch.org/whl/cu100/torch-1.0.1.post2-cp35-cp35m-linux_x86_64.whl
 RUN pip3 install torchvision
@@ -16,14 +30,17 @@ RUN pip3 install torchvision
 
 
 
+# Set the working directory to /app
+#WORKDIR /opt
 
+
+# Copy the current directory contents into the container at /app
+#ADD . /app
 
 
 # Make port 80 available to the world outside this container
 #EXPOSE 80
 
-# Define environment variable
-#ENV NAME World
 
 # Run app.py when the container launches
 #CMD ["python", "app.py"]
