@@ -2,16 +2,16 @@
 
 
 ```
-On MacOS
+#On MacOS
 spack load python@3.7.0%clang
 
-On linux
-spack load python@3.7.0
-
+#On linux
 module load python-3.7.0
+
+
 wget https://bootstrap.pypa.io/get-pip.py
 python get-pip.py
-pip3 install -upgrade pip
+pip3 install --upgrade pip
 ```
 
 ```
