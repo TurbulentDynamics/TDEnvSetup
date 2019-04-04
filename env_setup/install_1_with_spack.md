@@ -18,7 +18,7 @@ spack bootstrap
 ## Installing applications with spack
 ```
 spack install gcc@8.2.0 
-module load gcc@8.2.0
+spack load gcc@8.2.0
 spack compiler find
 
 CC=%gcc@8.2.0
