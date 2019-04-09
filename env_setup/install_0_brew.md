@@ -1,7 +1,6 @@
 # Brew is used to install simple utilities
-```
 
-```
+
 
 # Get Brew on MacOS
 ```
