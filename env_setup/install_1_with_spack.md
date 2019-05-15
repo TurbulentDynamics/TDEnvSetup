@@ -33,13 +33,13 @@ spack install octave@4.2.1
 #spack install pgi
 ```
 
-# For Ubuntu Linux
+### For Ubuntu Linux
 ```
 spack install swift
 spack install python@3.7.0%gcc@8.2.0 
 ```
 
-# For MacOS [python issue on mac](https://github.com/spack/spack/issues/2230)
+### For MacOS [python issue on mac](https://github.com/spack/spack/issues/2230)
 ```
 spack install python@3.7.0%clang@10.0.0-apple
 ```
