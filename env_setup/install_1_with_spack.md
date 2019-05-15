@@ -8,10 +8,10 @@
 cd ~
 git clone https://github.com/spack/spack.git
 
-echo 'export SPACK_ROOT=~/spack'>>~/.bashrc
-echo 'export PATH=$SPACK_ROOT/bin:$PATH'>>~/.bashrc
-echo '. $SPACK_ROOT/share/spack/setup-env.sh'>>~/.bashrc
-. ~/.bashrc
+echo 'export SPACK_ROOT=~/spack'>>~/.zshrc
+echo 'export PATH=$SPACK_ROOT/bin:$PATH'>>~/.zshrc
+echo '. $SPACK_ROOT/share/spack/setup-env.sh'>>~/.zshrc
+. ~/.zshrc
 spack bootstrap
 ```
 
