@@ -10,7 +10,7 @@ ENV export LC_ALL=C
 
 # additional packages
 RUN apt update
-RUN apt install -y curl wget vim clang libicu-dev
+RUN apt install -y curl wget vim git clang libicu-dev
 
 
 # Install Apple Swift
