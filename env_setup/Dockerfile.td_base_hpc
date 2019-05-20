@@ -1,1 +1,54 @@
-Dockerfile.td_base_ml
+# Use an official Python runtime as a parent image
+From nvidia/cuda:10.1-cudnn7-devel-ubuntu18.04
+
+
+# Define environment variable
+ENV SHELL=/bin/bash
+ENV export SHELL
+ENV export LC_ALL=C
+
+
+# additional packages
+RUN apt update
+RUN apt install -y curl wget vim clang libicu-dev zsh
+
+
+# Install Apple Swift
+RUN wget https://swift.org/builds/swift-5.0.1-release/ubuntu1804/swift-5.0.1-RELEASE/swift-5.0.1-RELEASE-ubuntu18.04.tar.gz
+RUN tar xzf swift-5.0.1-RELEASE-ubuntu18.04.tar.gz -C /opt
+ENV PATH=/opt/swift-5.0.1-RELEASE-ubuntu18.04/usr/bin:"${PATH}"
+
+RUN apt install -y python3 python3-dev
+RUN curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+RUN python3 get-pip.py
+RUN pip3 install numpy scipy matplotlib dask pandas jupyter
+RUN alias ll='ls -l'
+RUN alias python=python3
+
+
+#install spack
+RUN git clone https://github.com/spack/spack.git
+RUN echo 'export SPACK_ROOT=~/spack'>>~/.zshrc
+RUN echo 'export PATH=$SPACK_ROOT/bin:$PATH'>>~/.zshrc
+RUN echo '. $SPACK_ROOT/share/spack/setup-env.sh'>>~/.zshrc
+ENV . ~/.zshrc
+RUN spack bootstrap
+
+RUN spack install gcc@8.2.0 
+RUN spack load gcc@8.2.0
+RUN spack compiler find
+
+ENV CC=%gcc@8.2.0
+
+RUN spack install cmake@3.12.3${CC} openmpi@3.1.2${CC} openmpi@2.1.5${CC} mpich@3.2.1${CC}
+RUN spack install gcc@7.3.0${CC} gcc@6.4.0${CC} gcc@5.5.0${CC} rust@1.8.0${CC}
+RUN spack install llvm@7.0.0${CC}
+
+spack install swift
+spack install python@3.7.0%gcc@8.2.0 
+
+
+
+
+
+
