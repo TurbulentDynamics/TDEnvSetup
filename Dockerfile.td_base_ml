@@ -1,53 +1,27 @@
-# Use an official Python runtime as a parent image
-From nvidia/cuda:10.1-cudnn7-devel-ubuntu18.04
+# Use a local container set up like this:
+# https://github.com/TurbulentDynamics/TD-env-setup-dev-help/env-setup/nvidia-docker2-base-ml-container.md
+FROM niallobroin/td_base
+
+# Install python modules
+RUN pip install --trusted-host pypi.python.org pandas matplotlib dask pillow 
+RUN pip install jupyter
 
 
-# Define environment variable
-ENV SHELL=/bin/bash
-ENV export SHELL
-ENV export LC_ALL=C
-
-
-# additional packages
-RUN apt update
-RUN apt install -y curl wget vim git clang libicu-dev
-
-
-# Install Apple Swift
-RUN wget https://swift.org/builds/swift-5.0.1-release/ubuntu1804/swift-5.0.1-RELEASE/swift-5.0.1-RELEASE-ubuntu18.04.tar.gz
-RUN tar xzf swift-5.0.1-RELEASE-ubuntu18.04.tar.gz -C /opt
-ENV PATH=/opt/swift-5.0.1-RELEASE-ubuntu18.04/usr/bin:"${PATH}"
-
-# Install any needed packages specified in requirements.txt
-
-RUN apt install -y python2.7-dev python3 python3-dev
-RUN curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
-RUN python3 get-pip.py
-RUN pip3 install --trusted-host pypi.python.org pandas matplotlib dask pillow 
-
-
-#RUN pip3 install tensorflow-gpu
-RUN pip3 install tensorflow==2.0.0-alpha0 
-RUN pip3 install keras
-#RUN pip3 install https://download.pytorch.org/whl/cu100/torch-1.0.1.post2-cp35-cp35m-linux_x86_64.whl
-RUN pip3 install torchvision
-
-
-RUN alias ll='ls -l'
-RUN alias python=python3
-
-# Set the working directory to /app
-#WORKDIR /opt
+#RUN pip install tensorflow-gpu
+RUN pip install tensorflow==2.0.0-alpha0 
+RUN pip install keras
+#RUN pip install https://download.pytorch.org/whl/cu100/torch-1.0.1.post2-cp35-cp35m-linux_x86_64.whl
+RUN pip install torchvision
 
 
 # Copy the current directory contents into the container at /app
-#ADD . /app
+#COPY . /app
 
 
-# Make port 80 available to the world outside this container
-#EXPOSE 80
+# Make port 8888 available to the world outside this container
+EXPOSE 8888
 
 
 # Run app.py when the container launches
-#CMD ["python", "app.py"]
+# CMD ["jupyter", "lab"]
 
