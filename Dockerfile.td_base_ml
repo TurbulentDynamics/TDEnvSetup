@@ -1,17 +1,17 @@
 # Use a local container set up like this:
 # https://github.com/TurbulentDynamics/TD-env-setup-dev-help/env-setup/nvidia-docker2-base-ml-container.md
-FROM niallobroin/td_base
+FROM turbulentdynam/td_base
 
 # Install python modules
-RUN pip install --trusted-host pypi.python.org pandas matplotlib dask pillow 
-RUN pip install jupyter
+RUN pip install --user --trusted-host pypi.python.org pandas matplotlib dask pillow 
+RUN pip install --user jupyter
 
 
 #RUN pip install tensorflow-gpu
-RUN pip install tensorflow==2.0.0-alpha0 
-RUN pip install keras
+RUN pip install --user tensorflow==2.0.0-alpha0 
+RUN pip install --user keras
 #RUN pip install https://download.pytorch.org/whl/cu100/torch-1.0.1.post2-cp35-cp35m-linux_x86_64.whl
-RUN pip install torchvision
+RUN pip install --user torchvision
 
 
 # Copy the current directory contents into the container at /app
@@ -19,7 +19,7 @@ RUN pip install torchvision
 
 
 # Make port 8888 available to the world outside this container
-EXPOSE 8888
+#EXPOSE 8888
 
 
 # Run app.py when the container launches

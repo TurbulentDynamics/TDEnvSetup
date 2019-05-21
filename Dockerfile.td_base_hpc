@@ -1,6 +1,6 @@
 # Use a local container set up like this:
 # https://github.com/TurbulentDynamics/TD-env-setup-dev-help/env-setup/nvidia-docker2-base-ml-container.md
-FROM niallobroin/td_base
+FROM turbulentdynam/td_base
 
 
 #install spack
@@ -8,8 +8,12 @@ RUN git clone https://github.com/spack/spack.git
 RUN echo 'export SPACK_ROOT=~/spack'>>~/.zshrc
 RUN echo 'export PATH=$SPACK_ROOT/bin:$PATH'>>~/.zshrc
 RUN echo '. $SPACK_ROOT/share/spack/setup-env.sh'>>~/.zshrc
-#ENV . ~/.zshrc
-#RUN spack bootstrap
+
+ENV SPACK_ROOT="~/spack"
+ENV PATH="$SPACK_ROOT/bin:$PATH"
+CMD [".", "$SPACK_ROOT/share/spack/setup-env.sh"]
+
+RUN spack bootstrap
 
 #RUN spack install gcc@8.2.0 
 #RUN spack load gcc@8.2.0

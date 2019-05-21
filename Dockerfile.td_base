@@ -28,11 +28,14 @@ ENV SHELL=/bin/zsh
 ENV export SHELL
 ENV export LC_ALL=C
 ENV PATH=/opt/swift-5.0.1-RELEASE-ubuntu18.04/usr/bin:"${PATH}"
-
+ENV PATH="/home/tduser/.local/bin:${PATH}"
 
 #Get oh-my-zsh
 RUN sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
+
+
+CMD ["zsh"]
 
 
 
