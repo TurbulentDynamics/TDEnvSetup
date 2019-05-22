@@ -38,11 +38,13 @@ sudo pkill -SIGHUP dockerd
 docker run --runtime=nvidia --rm nvidia/cuda nvidia-smi
 ```
  
-## Build container
+## Working with Container
 ```
-#This command will download nvidia container with tensorflow) and add some components (see Dockerfile.td_base_ml)
-docker build -f Dockerfile.td_base_ml -t td_base_ml /opt/containers
+# Build container, this command will build container locally (note the ".")
+docker build -f Dockerfile.td_base_ml -t td_base_ml .
 
+# Pull container, this command will download container from dockerhub.com
+docker pull turbulentdynam/td_base_ml
 docker image ls
 
 #To run the new interactive container
