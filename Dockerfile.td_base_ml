@@ -1,7 +1,6 @@
 # Use a local container set up like this:
 # https://github.com/TurbulentDynamics/TD-env-setup-dev-help/env-setup/nvidia-docker2-base-ml-container.md
-FROM td_base
-#FROM turbulentdynam/td_base
+FROM turbulentdynam/td_base
 
 # Install python modules
 RUN pip install --user --trusted-host pypi.python.org pandas matplotlib dask pillow 
