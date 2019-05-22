@@ -5,7 +5,7 @@ FROM td_base
 
 # Install python modules
 RUN pip install --user --trusted-host pypi.python.org pandas matplotlib dask pillow 
-RUN pip install --user jupyter
+RUN pip install --user jupyterlab
 
 
 #RUN pip install tensorflow-gpu
