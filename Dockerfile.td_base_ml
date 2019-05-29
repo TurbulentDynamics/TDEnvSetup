@@ -9,7 +9,9 @@ RUN pip install --user jupyterlab
 
 
 #RUN pip install tensorflow-gpu
-RUN pip install --user tensorflow-gpu==2.0.0-alpha0 
+#RUN pip install --user tensorflow==2.0.0-alpha0 
+#RUN pip install --user tensorflow-gpu==2.0.0-alpha0 
+RUN pip install --user tf-nightly-gpu 
 RUN pip install --user keras
 #RUN pip install https://download.pytorch.org/whl/cu100/torch-1.0.1.post2-cp35-cp35m-linux_x86_64.whl
 RUN pip install --user torchvision
