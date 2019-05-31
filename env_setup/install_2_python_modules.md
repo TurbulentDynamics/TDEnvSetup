@@ -3,10 +3,10 @@
 
 ```
 #On MacOS
-spack load python@3.7.0%clang
+spack load python@3.7.4%clang
 
 #On linux
-module load python-3.7.0
+module load python-3.7.4
 
 
 wget https://bootstrap.pypa.io/get-pip.py
