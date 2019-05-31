@@ -16,7 +16,6 @@ pip3 install --upgrade pip
 
 ```
 pip3 install --trusted-host pep8 coverage nose pylint sphinx sphinx_rtd_theme recommonmark
-pip3 install numpy scipy matplotlib dask
-pip3 install pandas 
-pip3 install jupyter
+pip3 install pandas numpy scipy matplotlib dask
+pip3 install jupyterlab
 ```
