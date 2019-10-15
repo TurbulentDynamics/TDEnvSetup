@@ -14,11 +14,11 @@
 
 # Turbulent Dynamics Coding Guidelines
 
-[View this on turbulentdynamics.github.io/dev_info/](https://turbulentdynamics.github.io/TD_env_setup_dev_info/)
+[View this on turbulentdynamics.github.io/dev_info/](https://turbulentdynamics.github.io/TDEnvSetup/)
 
 ### Some Visualisations
- * [Vector Identifiers](https://turbulentdynamics.github.io/TD_env_setup_dev_info/graphics/arrows.html) The vectors are numbered differently than usual LBM implementations
- * [Item Identifiers](https://turbulentdynamics.github.io/TD_env_setup_dev_info/graphics/cube.html) The cells in the outer shell of the lattice grid has been given an identification
- * [Visualisation 1000 cubes](https://turbulentdynamics.github.io/TD_env_setup_dev_info/graphics/1000.html)
+ * [Vector Identifiers](https://turbulentdynamics.github.io/TDEnvSetup/graphics/arrows.html) The vectors are numbered differently than usual LBM implementations
+ * [Item Identifiers](https://turbulentdynamics.github.io/TDEnvSetup/graphics/cube.html) The cells in the outer shell of the lattice grid has been given an identification
+ * [Visualisation 1000 cubes](https://turbulentdynamics.github.io/TDEnvSetup/graphics/1000.html)
 
 
