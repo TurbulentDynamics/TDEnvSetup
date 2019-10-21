@@ -34,5 +34,6 @@ sudo chsh -s /bin/zsh <username>
 #Get oh-my-zsh
 sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
-#Log out and log back in
+#Log out and log back in, and check using zsh
+echo $0
 ```
