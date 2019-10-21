@@ -1,5 +1,5 @@
 # Installing applications with spack
-#### [spack](https://spack.readthedocs.io/en/latest/) allows multiple versions of each app, and uses [environment modules](http://modules.sourceforge.net) to "load" them.  It is very usefull for hpc environments, and can be used to install apps into home directory on 'clusters.'
+#### [spack](https://spack.readthedocs.io/en/latest/) allows multiple versions of each app.  It is very usefull for hpc environments, and can be used to install apps into home directory on 'clusters.'
 
 
 
@@ -12,7 +12,6 @@ echo 'export SPACK_ROOT=~/spack'>>~/.zshrc
 echo 'export PATH=$SPACK_ROOT/bin:$PATH'>>~/.zshrc
 echo '. $SPACK_ROOT/share/spack/setup-env.sh'>>~/.zshrc
 . ~/.zshrc
-spack bootstrap
 ```
 
 ## Installing applications with spack
