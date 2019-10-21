@@ -9,11 +9,11 @@
 
 # Get Brew on Linux
 ```bash
-apt-get install build-essential curl zsh
+sudo apt-get install build-essential curl zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh)"
 echo 'eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)' >>~/.profile
 echo 'PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"'>>~/.zshrc
-apt install linuxbrew-wrapper
+sudo apt install linuxbrew-wrapper
 brew update --force
 ```
 
