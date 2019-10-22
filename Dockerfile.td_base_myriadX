@@ -1,0 +1,66 @@
+# Use an official Python runtime as a parent image
+FROM ubuntu:16.04
+
+# additional packages
+RUN apt update
+RUN apt install -y curl wget vim git zsh sudo usbutils 
+#RUN apt install -y python2.7 python2.7-dev python3 python3-dev
+RUN apt install -y python
+RUN apt install -y cpio 
+
+
+# Install pip
+RUN curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+RUN python get-pip.py
+RUN pip install --upgrade pip
+
+
+#Install OpenVINO for Movidius
+#https://docs.openvinotoolkit.org/latest/_docs_install_guides_installing_openvino_docker_linux.html
+ARG DOWNLOAD_LINK=http://registrationcenter-download.intel.com/akdlm/irc_nas/15944/l_openvino_toolkit_p_2019.3.334.tgz
+ARG INSTALL_DIR=/opt/intel/openvino
+ARG TEMP_DIR=/tmp/openvino_installer
+
+RUN rm -rf /var/lib/apt/lists/*
+
+RUN mkdir -p $TEMP_DIR && cd $TEMP_DIR && wget -c $DOWNLOAD_LINK
+RUN cd $TEMP_DIR && tar xf l_openvino_toolkit*.tgz && \
+    cd l_openvino_toolkit* && \
+    sed -i 's/decline/accept/g' silent.cfg && \
+    ./install.sh -s silent.cfg
+#RUN rm -rf $TEMP_DIR
+RUN $INSTALL_DIR/install_dependencies/install_openvino_dependencies.sh
+
+
+# build Inference Engine samples
+RUN mkdir $INSTALL_DIR/deployment_tools/inference_engine/samples/build && cd $INSTALL_DIR/deployment_tools/inference_engine/samples/build && \
+    /bin/bash -c "source $INSTALL_DIR/bin/setupvars.sh && cmake .. && make -j24"
+
+
+
+
+
+#Setup a user for inside the container
+RUN useradd -ms /bin/zsh tduser
+RUN echo "tduser:tduser" | chpasswd && adduser tduser sudo 
+RUN echo "tduser ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
+USER tduser
+WORKDIR /home/tduser
+
+# Define environment variable
+ENV SHELL=/bin/zsh
+ENV export SHELL
+ENV export LC_ALL=C
+ENV PATH="/home/tduser/.local/bin:${PATH}"
+
+#Get oh-my-zsh
+RUN sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+
+
+#Run of demo on Myriad
+#RUN cd /opt/intel/openvino/deployment_tools/demo && ./demo_security_barrier_camera.sh -d MYRIAD
+
+#RUN echo docker run --privileged -it -v /dev:/dev td_base_myriadx
+CMD ["zsh"]
+
+

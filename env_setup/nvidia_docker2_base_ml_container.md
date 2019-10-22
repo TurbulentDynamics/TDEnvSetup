@@ -48,7 +48,9 @@ docker pull turbulentdynam/td_base_ml
 docker image ls
 
 #To run the new interactive container
+#Use --privileged if access needed to devices (but unsafe)
 nvidia-docker run -it --shm-size=1g --ulimit memlock=-1 --ulimit stack=67108864 -v /opt/path/to/fast/storage:/ml_data td_base_ml
+
 
 #Inside the container, run a few simple tests
 import keras

@@ -4,6 +4,7 @@
 FROM turbulentdynamics/td_base
 
 # Install python modules
+RUN pip install --upgrade pip
 RUN pip install --user --trusted-host pypi.python.org pandas matplotlib dask pillow 
 RUN pip install --user jupyterlab
 
