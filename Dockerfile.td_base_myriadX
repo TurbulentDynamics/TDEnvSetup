@@ -1,17 +1,30 @@
 # Use an official Python runtime as a parent image
 FROM ubuntu:16.04
 
+RUN route -n | awk '/^0.0.0.0/ {print $2}' > /tmp/host_ip.txt
+RUN echo "HEAD /" | nc `cat /tmp/host_ip.txt` 8000 | grep squid-deb-proxy \
+  && (echo "Acquire::http::Proxy \"http://$(cat /tmp/host_ip.txt):8000\";" > /etc/apt/apt.conf.d/30proxy) \
+  && (echo "Acquire::http::Proxy::ppa.launchpad.net DIRECT;" >> /etc/apt/apt.conf.d/30proxy) \
+  || echo "No squid-deb-proxy detected on docker host"
+
+
 # additional packages
 RUN apt update
-RUN apt install -y curl wget vim git zsh sudo usbutils 
+RUN apt install -y apt-utils build-essential curl wget vim git zsh sudo usbutils
 #RUN apt install -y python2.7 python2.7-dev python3 python3-dev
-RUN apt install -y python
-RUN apt install -y cpio 
+RUN apt install -y python python-pip
+RUN apt install -y cpio udev  
+
+
+#FOR Movidius demo security barrier 
+RUN sudo apt -y install build-essential python3-pip virtualenv cmake libcairo2-dev libpango1.0-dev libglib2.0-dev libgtk2.0-dev libswscale-dev libavcodec-dev libavformat-dev libgstreamer1.0-0 gstreamer1.0-plugins-base python-requests
+
+
 
 
 # Install pip
-RUN curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
-RUN python get-pip.py
+#RUN curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+#RUN python get-pip.py
 RUN pip install --upgrade pip
 
 
@@ -34,33 +47,88 @@ RUN $INSTALL_DIR/install_dependencies/install_openvino_dependencies.sh
 
 # build Inference Engine samples
 RUN mkdir $INSTALL_DIR/deployment_tools/inference_engine/samples/build && cd $INSTALL_DIR/deployment_tools/inference_engine/samples/build && \
-    /bin/bash -c "source $INSTALL_DIR/bin/setupvars.sh && cmake .. && make -j24"
+    /bin/bash -c "source $INSTALL_DIR/bin/setupvars.sh && cmake .. && make -j4"
 
 
 
 
 
-#Setup a user for inside the container
-RUN useradd -ms /bin/zsh tduser
-RUN echo "tduser:tduser" | chpasswd && adduser tduser sudo 
-RUN echo "tduser ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
-USER tduser
-WORKDIR /home/tduser
 
-# Define environment variable
-ENV SHELL=/bin/zsh
-ENV export SHELL
-ENV export LC_ALL=C
-ENV PATH="/home/tduser/.local/bin:${PATH}"
 
-#Get oh-my-zsh
-RUN sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+
 
 
 #Run of demo on Myriad
 #RUN cd /opt/intel/openvino/deployment_tools/demo && ./demo_security_barrier_camera.sh -d MYRIAD
 
+
+#----------------
+
+ARG target=MYRIAD
+ARG target_precision=FP16
+
+#RUN /opt/intel/openvino_2019.3.334/deployment_tools/open_model_zoo/tools/downloader/downloader.py --name vehicle-license-plate-detection-barrier-0106 --output_dir /home/tduser/openvino_models/ir/FP16
+
+#RUN /opt/intel/openvino_2019.3.334/deployment_tools/open_model_zoo/tools/downloader/downloader.py --name license-plate-recognition-barrier-0001 --output_dir /home/tduser/openvino_models/ir/FP16
+
+#RUN /opt/intel/openvino_2019.3.334/deployment_tools/open_model_zoo/tools/downloader/downloader.py --name vehicle-attributes-recognition-barrier-0039 --output_dir /home/tduser/openvino_models/ir/FP16
+
+#RUN cd /home/tduser/inference_engine_demos_build/intel64/Release/
+
+#RUN ./security_barrier_camera_demo -d MYRIAD -d_va MYRIAD -d_lpr MYRIAD -i /opt/intel/openvino/deployment_tools/demo/car_1.bmp -m /home/tduser/openvino_models/ir/FP16/intel/vehicle-license-plate-detection-barrier-0106/FP16/vehicle-license-plate-detection-barrier-0106.xml -m_lpr /home/tduser/openvino_models/ir/FP16/intel/license-plate-recognition-barrier-0001/FP16/license-plate-recognition-barrier-0001.xml -m_va /home/tduser/openvino_models/ir/FP16/intel/vehicle-attributes-recognition-barrier-0039/FP16/vehicle-attributes-recognition-barrier-0039.xml
+#---------------------
+
+
+
+
+#RUN cd /opt/intel/openvino/deployment_tools/inference_engine/samples/build/intel64/Release
+#RUN cd /opt/intel/openvino/deployment_tools/demo
+#RUN cd /opt/intel/openvino/deployment_tools/open_model_zoo/demos/security_barrier_camera_demo
+#RUN sh ./security_barrier_camera_demo -d MYRIAD -d_va MYRIAD -d_lpr MYRIAD -i /opt/intel/openvino_2019.3.334/deployment_tools/demo/car_1.bmp -m /home/tduser/openvino_models/ir/FP16/intel/vehicle-license-plate-detection-barrier-0106/FP16/vehicle-license-plate-detection-barrier-0106.xml -m_lpr /home/tduser/openvino_models/ir/FP16/intel/license-plate-recognition-barrier-0001/FP16/license-plate-recognition-barrier-0001.xml -m_va /home/tduser/openvino_models/ir/FP16/intel/vehicle-attributes-recognition-barrier-0039/FP16/vehicle-attributes-recognition-barrier-0039.xml
+
+
+
 #RUN echo docker run --privileged -it -v /dev:/dev td_base_myriadx
-CMD ["zsh"]
+
+
+
+#Set up new udev rules for usb MyriadX
+ARG UDEV_FILE=97-myriad-usbboot.rules
+RUN echo SUBSYSTEM=="usb", ATTRS{idProduct}=="2150", ATTRS{idVendor}=="03e7", GROUP="users", MODE="0666", ENV{ID_MM_DEVICE_IGNORE}="1">>$UDEV_FILE
+RUN echo SUBSYSTEM=="usb", ATTRS{idProduct}=="2485", ATTRS{idVendor}=="03e7", GROUP="users", MODE="0666", ENV{ID_MM_DEVICE_IGNORE}="1">>$UDEV_FILE
+RUN echo SUBSYSTEM=="usb", ATTRS{idProduct}=="f63b", ATTRS{idVendor}=="03e7", GROUP="users", MODE="0666", ENV{ID_MM_DEVICE_IGNORE}="1" >> 97-myriad-usbboot.rules && sudo cp 97-myriad-usbboot.rules /etc/udev/rules.d/
+#CMD ["sudo udevadm control --reload-rules"]
+#CMD ["sudo udevadm trigger"]
+#CMD ["sudo ldconfig"]
+
+
+CMD ["bash"]
+
+
+
+#Setup a user for inside the container
+#RUN useradd -ms /bin/zsh tduser
+#RUN echo "tduser:tduser" | chpasswd && adduser tduser sudo 
+#RUN echo "tduser ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
+#USER tduser
+#WORKDIR /home/tduser
+
+#RUN sudo usermod -a -G users "tduser"
+#RUN sudo usermod -a -G users "root"
+
+# Define environment variable
+#ENV SHELL=/bin/zsh
+#ENV export SHELL
+#ENV export LC_ALL=C
+#ENV PATH="/home/tduser/.local/bin:${PATH}"
+
+#Get oh-my-zsh
+#RUN sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+
+#CMD ["zsh"]
+
+
+
+
 
 
