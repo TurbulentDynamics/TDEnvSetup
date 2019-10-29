@@ -41,14 +41,13 @@ docker run --runtime=nvidia --rm nvidia/cuda nvidia-smi
 ## Working with Container
 ```
 # Build container, this command will build container locally (note the ".")
+# The container will build tensorflow with native CPU flags to get all instructions working natively on the build machine.
+
 nvidia-docker build -f Dockerfile.td_base_ml -t td_base_ml .
 
-# Pull container, this command will download container from dockerhub.com
-nvidia-docker pull turbulentdynamics/td_base_ml
-nvidia-docker image ls
-
 #To run the new interactive container
-#Use --privileged if access needed to devices (but unsafe)
+#Use --privileged if access needed to OTHER devices like USB drives.
+
 nvidia-docker run --runtime=nvidia -it --shm-size=1g --ulimit memlock=-1 --ulimit stack=67108864 -v /opt/path/to/fast/storage:/ml_data td_base_ml
 
 
@@ -57,6 +56,13 @@ import keras
 
 import torch
 torch.cuda.is_available()
+
+
+#======
+# This container is also built on dockerhub, but it may not have the same CPU instruction flags as the host machine.
+# Pull container, this command will download pre built container from dockerhub.com 
+nvidia-docker pull turbulentdynamics/td_base_ml
+nvidia-docker image ls
 
 ``` 
  
