@@ -7,13 +7,13 @@
 * [Install python modules](env_setup/install_2_python_modules.md)
 
 * [Install Nvidia CUDA and tools](env_setup/install_3_nvidia_for_Ubuntu_18_10.md)
-* [Install singularity and run TD_Base_ML container](env_setup/install_4_singularity.md.md)
-* [Install docker, nvidia-docker2 and run TD_Base_ML container](env_setup/nvidia_docker2_base_ml_container.md)
-
-
+* [Install docker, nvidia-docker2 and run TD_Base_ML container](env_setup/install_4_nvidia_docker2_base_ml_container.md)
+* [Install singularity and run TD_Base_ML container](env_setup/install_5_singularity.md.md)
 
 * [(WIP) Use Spack to install Swift](env_setup/spack_swift_package.py)
 * [(WIP) Install Swift on Ubuntu](env_setup/swift_for_ubuntu.md)
+
+* [Other Apps](env_setup/apps.md)
 
 
 # Turbulent Dynamics Coding Guidelines
