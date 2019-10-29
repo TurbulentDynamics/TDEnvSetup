@@ -1,7 +1,7 @@
 # Use a local container set up like this:
 # https://github.com/TurbulentDynamics/TD-env-setup-dev-help/env-setup/nvidia-docker2-base-ml-container.md
-#FROM local_td_base
-FROM turbulentdynamics/td_base
+FROM td_base
+#FROM turbulentdynamics/td_base
 
 # Install python modules
 RUN pip install --upgrade pip
@@ -17,24 +17,26 @@ ARG BAZELVERSION=0.26.1
 RUN wget https://github.com/bazelbuild/bazel/releases/download/$BAZELVERSION/bazel-$BAZELVERSION-installer-linux-x86_64.sh
 RUN chmod +x bazel-$BAZELVERSION-installer-linux-x86_64.sh
 RUN ./bazel-$BAZELVERSION-installer-linux-x86_64.sh --user
-RUN export PATH="$PATH:$HOME/bin"
+ENV export PATH="$PATH:$HOME/bin"
 
 RUN git clone https://github.com/tensorflow/tensorflow.git
-RUN cd tensorflow
-RUN git checkout v2.0.0
-RUN ./configure cuda=Y
+RUN cd tensorflow && git checkout v2.0.0
 
 #========================#https://gist.github.com/hiteshjasani/97c76d33c7649f281f9c7e2749f607ab
 ENV CI_BUILD_PYTHON=python
 ENV TF_NEED_CUDA=1
 ENV TF_CUDA_VERSION=10.1
 ENV TF_CUDNN_VERSION=7
-ENV TF_NEED_TENSORRT=1
+ENV TF_NEED_TENSORRT=0
 ENV TF_CUDA_COMPUTE_CAPABILITIES=7.5
-RUN ln -s /usr/local/cuda/lib64/stubs/libcuda.so /usr/local/cuda/lib64/stubs/libcuda.so.1
+RUN sudo ln -s /usr/local/cuda/lib64/stubs/libcuda.so /usr/local/cuda/lib64/stubs/libcuda.so.1
 RUN LD_LIBRARY_PATH=/usr/local/cuda/lib64/stubs:${LD_LIBRARY_PATH}
-RUN tensorflow/tools/ci_build/builds/configured GPU
-RUN bazel build --config=opt --config=cuda //tensorflow/tools/pip_package:build_pip_package
+
+
+RUN cd tensorflow && tensorflow/tools/ci_build/builds/configured GPU
+
+
+RUN cd tensorflow && ~/bin/bazel build -c opt --config=cuda //tensorflow/tools/pip_package:build_pip_package
 
 RUN ./bazel-bin/tensorflow/tools/pip_package/build_pip_package /tmp/tensorflow_pkg
 RUN pip install -U --user /tmp/tensorflow_pkg/tensorflow-v2.0.0.whl

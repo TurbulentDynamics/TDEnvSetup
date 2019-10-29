@@ -19,6 +19,14 @@ RUN apt install -y python python-pip
 RUN apt install -y cpio udev  
 
 
+#Download OpenVINO, its about 200mb
+ARG DOWNLOAD_LINK=http://registrationcenter-download.intel.com/akdlm/irc_nas/15944/l_openvino_toolkit_p_2019.3.334.tgz
+ARG INSTALL_DIR=/opt/intel/openvino
+ARG TEMP_DIR=/tmp/openvino_installer
+RUN mkdir -p $TEMP_DIR && cd $TEMP_DIR && wget -c $DOWNLOAD_LINK
+
+
+
 #FOR Movidius demo security barrier 
 RUN sudo apt -y install build-essential python3-pip virtualenv cmake libcairo2-dev libpango1.0-dev libglib2.0-dev libgtk2.0-dev libswscale-dev libavcodec-dev libavformat-dev libgstreamer1.0-0 gstreamer1.0-plugins-base python-requests
 
@@ -33,13 +41,7 @@ RUN pip install --upgrade pip
 
 #Install OpenVINO for Movidius
 #https://docs.openvinotoolkit.org/latest/_docs_install_guides_installing_openvino_docker_linux.html
-ARG DOWNLOAD_LINK=http://registrationcenter-download.intel.com/akdlm/irc_nas/15944/l_openvino_toolkit_p_2019.3.334.tgz
-ARG INSTALL_DIR=/opt/intel/openvino
-ARG TEMP_DIR=/tmp/openvino_installer
-
-RUN rm -rf /var/lib/apt/lists/*
-
-RUN mkdir -p $TEMP_DIR && cd $TEMP_DIR && wget -c $DOWNLOAD_LINK
+#RUN rm -rf /var/lib/apt/lists/*
 RUN cd $TEMP_DIR && tar xf l_openvino_toolkit*.tgz && \
     cd l_openvino_toolkit* && \
     sed -i 's/decline/accept/g' silent.cfg && \
