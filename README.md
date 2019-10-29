@@ -1,6 +1,8 @@
 # Turbulent Dynamics Environment setup
 
-* [Install brew on both MacOS and Linux](env_setuo/install_0_brew.md)
+
+
+* [Install brew on both MacOS and Linux](env_setup/install_0_brew.md)
 * [Install spack and some applications](tdEnvSetup/install_1_with_spack.md)
 * [Install python modules](tdEnvSetup/install_2_python_modules.md)
 
