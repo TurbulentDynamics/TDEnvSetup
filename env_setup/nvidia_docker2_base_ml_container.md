@@ -41,11 +41,11 @@ docker run --runtime=nvidia --rm nvidia/cuda nvidia-smi
 ## Working with Container
 ```
 # Build container, this command will build container locally (note the ".")
-docker build -f Dockerfile.td_base_ml -t td_base_ml .
+nvidia-docker build -f Dockerfile.td_base_ml -t td_base_ml .
 
 # Pull container, this command will download container from dockerhub.com
-docker pull turbulentdynamics/td_base_ml
-docker image ls
+nvidia-docker pull turbulentdynamics/td_base_ml
+nvidia-docker image ls
 
 #To run the new interactive container
 #Use --privileged if access needed to devices (but unsafe)
