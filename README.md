@@ -6,9 +6,9 @@
 * [Install spack and some applications](env_setup/install_1_with_spack.md)
 * [Install python modules](env_setup/install_2_python_modules.md)
 
-* [Install Nvidia CUDA and tools](env_setup/nvidia_for_Ubuntu_18_10.md)
+* [Install Nvidia CUDA and tools](env_setup/install_3_nvidia_for_Ubuntu_18_10.md)
+* [Install singularity and run TD_Base_ML container](env_setup/install_4_singularity.md.md)
 * [Install docker, nvidia-docker2 and run TD_Base_ML container](env_setup/nvidia_docker2_base_ml_container.md)
-* [Install singularity and run TD_Base_ML container](env_setup/install_4_singularity.md)
 
 
 
