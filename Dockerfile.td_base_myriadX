@@ -19,6 +19,11 @@ RUN apt install -y python python-pip
 RUN apt install -y cpio udev  
 
 
+#http://www.jwrr.com/ncs2-1/
+#
+#
+#
+
 #Download OpenVINO, its about 200mb
 ARG DOWNLOAD_LINK=http://registrationcenter-download.intel.com/akdlm/irc_nas/15944/l_openvino_toolkit_p_2019.3.334.tgz
 ARG INSTALL_DIR=/opt/intel/openvino
@@ -42,12 +47,15 @@ RUN pip install --upgrade pip
 #Install OpenVINO for Movidius
 #https://docs.openvinotoolkit.org/latest/_docs_install_guides_installing_openvino_docker_linux.html
 #RUN rm -rf /var/lib/apt/lists/*
+RUN sudo -E $INSTALL_DIR/install_dependencies/install_openvino_dependencies.sh
 RUN cd $TEMP_DIR && tar xf l_openvino_toolkit*.tgz && \
     cd l_openvino_toolkit* && \
     sed -i 's/decline/accept/g' silent.cfg && \
     ./install.sh -s silent.cfg
 #RUN rm -rf $TEMP_DIR
-RUN $INSTALL_DIR/install_dependencies/install_openvino_dependencies.sh
+
+RUN source /opt/intel/openvino/bin/setupvars.sh
+RUN cd /opt/intel/openvino/install_dependencies && sudo ./install_NCS_udev_rules.sh
 
 
 # build Inference Engine samples
@@ -98,10 +106,10 @@ ARG target_precision=FP16
 
 
 #Set up new udev rules for usb MyriadX
-ARG UDEV_FILE=97-myriad-usbboot.rules
-RUN echo SUBSYSTEM=="usb", ATTRS{idProduct}=="2150", ATTRS{idVendor}=="03e7", GROUP="users", MODE="0666", ENV{ID_MM_DEVICE_IGNORE}="1">>$UDEV_FILE
-RUN echo SUBSYSTEM=="usb", ATTRS{idProduct}=="2485", ATTRS{idVendor}=="03e7", GROUP="users", MODE="0666", ENV{ID_MM_DEVICE_IGNORE}="1">>$UDEV_FILE
-RUN echo SUBSYSTEM=="usb", ATTRS{idProduct}=="f63b", ATTRS{idVendor}=="03e7", GROUP="users", MODE="0666", ENV{ID_MM_DEVICE_IGNORE}="1" >> 97-myriad-usbboot.rules && sudo cp 97-myriad-usbboot.rules /etc/udev/rules.d/
+#ARG UDEV_FILE=97-myriad-usbboot.rules
+#RUN echo SUBSYSTEM=="usb", ATTRS{idProduct}=="2150", ATTRS{idVendor}=="03e7", GROUP="users", MODE="0666", ENV{ID_MM_DEVICE_IGNORE}="1">>$UDEV_FILE
+#RUN echo SUBSYSTEM=="usb", ATTRS{idProduct}=="2485", ATTRS{idVendor}=="03e7", GROUP="users", MODE="0666", ENV{ID_MM_DEVICE_IGNORE}="1">>$UDEV_FILE
+#RUN echo SUBSYSTEM=="usb", ATTRS{idProduct}=="f63b", ATTRS{idVendor}=="03e7", GROUP="users", MODE="0666", ENV{ID_MM_DEVICE_IGNORE}="1" >> 97-myriad-usbboot.rules && sudo cp 97-myriad-usbboot.rules /etc/udev/rules.d/
 #CMD ["sudo udevadm control --reload-rules"]
 #CMD ["sudo udevadm trigger"]
 #CMD ["sudo ldconfig"]

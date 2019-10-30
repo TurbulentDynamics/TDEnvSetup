@@ -32,16 +32,13 @@ ENV TF_CUDA_COMPUTE_CAPABILITIES=7.5
 RUN sudo ln -s /usr/local/cuda/lib64/stubs/libcuda.so /usr/local/cuda/lib64/stubs/libcuda.so.1
 RUN LD_LIBRARY_PATH=/usr/local/cuda/lib64/stubs:${LD_LIBRARY_PATH}
 
-
 RUN cd tensorflow && tensorflow/tools/ci_build/builds/configured GPU
 
-
 RUN cd tensorflow && ~/bin/bazel build -c opt --config=cuda //tensorflow/tools/pip_package:build_pip_package
+RUN cd tensorflow && ./bazel-bin/tensorflow/tools/pip_package/build_pip_package /tmp/tensorflow_pkg
+RUN pip install -U --user /tmp/tensorflow_pkg/tensorflow-*.whl
 
-RUN ./bazel-bin/tensorflow/tools/pip_package/build_pip_package /tmp/tensorflow_pkg
-RUN pip install -U --user /tmp/tensorflow_pkg/tensorflow-v2.0.0.whl
-
-
+RUN pip install -U --user torchvision
 
 # References
 # https://www.tensorflow.org/install/install_sources
@@ -52,15 +49,14 @@ RUN pip install -U --user /tmp/tensorflow_pkg/tensorflow-v2.0.0.whl
 # https://gcc.gnu.org/onlinedocs/gcc-7.1.0/gcc/x86-Options.html#x86-Options
 # https://gcc.gnu.org/onlinedocs/gcc-4.5.3/gcc/i386-and-x86_002d64-Options.html
 
-#========================
-
-#Use these to install pre-compiled binaries, HOWEVER, these will not use all CPU instructions available
+#Could use these to install pre-compiled binaries, HOWEVER, these will not use all CPU instructions available
 #RUN pip install -U --user tensorflow-gpu
 #RUN pip install -U --user tensorflow==2.0.0
 #RUN pip install -U --user tensorflow-gpu==2.0.0
 #RUN pip install -U --user tf-nightly-gpu 
-#RUN pip install https://download.pytorch.org/whl/cu100/torch-1.0.1.post2-cp35-cp35m-linux_x86_64.whl
-#RUN pip install -U --user torchvision
+#========================
+
+
 
 
 # Copy the current directory contents into the container at /app

@@ -1,6 +1,9 @@
 # Install Python Packages
 
 ```
+#Ensure default python is python3
+#update-alternatives --install /usr/bin/python python /usr/bin/python3 10
+
 module purge
 echo "spack load python-3.8.0">>~/.zshrc
 source ~/.zshrc
