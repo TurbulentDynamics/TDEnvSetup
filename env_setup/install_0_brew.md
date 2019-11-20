@@ -1,4 +1,4 @@
-# Brew is used to install simple utilities
+# Brew is used to install simple utilities without sudo to home directory
 
 
 
@@ -9,10 +9,10 @@
 
 # Get Brew on Linux
 ```bash
-sudo apt-get install build-essential curl zsh
+#sudo apt-get install build-essential curl
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh)"
 echo 'eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)' >>~/.profile
-echo 'PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"'>>~/.zshrc
+echo 'PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"'>>~/.bashrc
 sudo apt install linuxbrew-wrapper
 brew update --force
 ```
@@ -20,7 +20,7 @@ brew update --force
 
 # Install some simple Utilities via brew
 ```
-brew install wget tree vim git curl 
+brew install wget tree vim git curl
 ```
 
 
@@ -30,10 +30,11 @@ brew install zsh iterm2
 
 #To change shell to zsh
 sudo chsh -s /bin/zsh <username> 
+echo 'PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"'>>~/.zshrc
 
 #Get oh-my-zsh
 sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
-#Log out and log back in, and check using zsh
+#Log out and log back in, and check if using zsh
 echo $0
 ```
