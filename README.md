@@ -1,9 +1,10 @@
 # Turbulent Dynamics Environment setup
-Turbulent Dynamics developes Maching Learning, MPI and iOS applications for both High Performance Computing (Supercomputing) edge devices (Xavier, Raspberry PI, MyriadX) and MacOS.  Minimising system admin workload is not trivial, as different devices require a different stack, especially edge devices, and sometimes sudo is not available (on HPC systems).  Therefore our hierarchy of goals are:
+Turbulent Dynamics developes Maching Learning, MPI and iOS applications for both High Performance Computing (Supercomputing) edge devices (Xavier, Raspberry PI, MyriadX) and MacOS.  Minimising system admin workload is not trivial, as different devices require a different stack, especially edge devices, and sometimes sudo is not available (on HPC systems).  This drives out environment and app choices.
 
-1. Avoid sudo installs using Spack (sudo not available on HPC systems)
-2. Use containers where possible (Edge devices struggle or are unable)
-3. Use Python Venv, for ML Tensorflow and tools
+1. Avoid sudo installs by using Brew for basic tools.
+2. Avoid sudo and allow multiple versions of apps using Spack (also compiles all dependencies giving performance advantages).
+3. Use containers where possible (Edge devices struggle or are unable).
+4. Use Python Venv, for ML Tensorflow and tools.
 
 
 | Device                         | Use Case                                                | Notes                             |
