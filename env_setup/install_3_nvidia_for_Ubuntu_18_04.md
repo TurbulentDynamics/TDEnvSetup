@@ -1,11 +1,8 @@
-# To Install cuda-10.0 and Jetpack-4.2 on Ubuntu 16.04
+# To Install cuda-10.0 and Jetpack-4.2 on Ubuntu 18.04
 #(Nvidia SDK and Xavier uses cuda 10.0.  Need Ubuntu 16.04 for OpenVino)
 
-```sudo apt-get install linux-headers-$(uname -r)```
-
-Check https://developer.nvidia.com/cuda-downloads?target_os=Linux&target_arch=x86_64&target_distro=Ubuntu&target_version=1604&target_type=debnetwork
-
 ```
+sudo apt-get install linux-headers-$(uname -r)
 wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/cuda-ubuntu1804.pin
 sudo mv cuda-ubuntu1804.pin /etc/apt/preferences.d/cuda-repository-pin-600
 wget http://developer.download.nvidia.com/compute/cuda/10.2/Prod/local_installers/cuda-repo-ubuntu1804-10-2-local-10.2.89-440.33.01_1.0-1_amd64.deb
