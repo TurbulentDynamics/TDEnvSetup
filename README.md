@@ -1,20 +1,21 @@
 # Turbulent Dynamics Environment setup
-Turbulent Dynamics developes Maching Learning and MPI applications for both High Performance Computing (Supercomputing) and edge devices (Xavier, Raspberry PI, MyriadX) and MacOS.  Minimising system admin workload is not easy, as lots of the devices require a different stack, especially edge devices, and sometimes sudo is not available (on HPC systems).  Therefore our hierarchy of goals are:
+Turbulent Dynamics developes Maching Learning, MPI and iOS applications for both High Performance Computing (Supercomputing) edge devices (Xavier, Raspberry PI, MyriadX) and MacOS.  Minimising system admin workload is not trivial, as different devices require a different stack, especially edge devices, and sometimes sudo is not available (on HPC systems).  Therefore our hierarchy of goals are:
 
-1. Avoid sudo installs (sudo not available on HPC systems)
-2. Use containers where possible (Edge devices usually struggle/cant)
+1. Avoid sudo installs using Spack (sudo not available on HPC systems)
+2. Use containers where possible (Edge devices struggle or are unable)
 3. Use Python Venv, for ML Tensorflow and tools
 
-| Device                         | Use Case                                    |            OS            |         Container |
-|--------------------------------|---------------------------------------------|:------------------------:|------------------:|
-| HPC System                     | Training ML Large Scale MPI apps 100s nodes |           Linux          | Maybe Singularity |
-| Workstations (with AMD GPU)    | Training ML                                 | Ubuntu 18.04 (Cuda 10.0) |   Nvidia-docker 2 |
-| Workstations (with Nvidia GPU) | Training ML MPI app testing                 | Ubuntu 18.04 (Cuda 10.0) | Nvidia-docker 2   |
-| MacOS (AMD GPU)                | Visualisations in Metal iOS apps            |                          | Docker            |
-| NVIDIA Xavier/Nano             | ML Inferencing                              |                          | Not Available     |
-| MyriadX (Intel Compute Stick)  | ML Inferencing                              | Ubuntu 16.04 + OpenVINO  | Not Available     |
-| Raspberry Pi                   | ML Inferencing                              |                          | Not Available     |
-|                                |                                             |                          |                   |
+
+| Device                         | Use Case                                                | Notes                             |
+|--------------------------------|---------------------------------------------------------|-----------------------------------|
+| HPC System                     | Training ML and Large Scale MPI apps 100s nodes         | Sudo not available                |
+| Workstations (with AMD GPU)    | Training ML                                             |                                   |
+| Workstations (with Nvidia GPU) | Training ML, rebuilding Xavier/Nano and MPI app testing | Nvidia SDK limits to Ubuntu 18.04 |
+| MacOS (AMD GPU)                | Visualisations in Metal and iOS apps                    | Develop in Swift                  |
+| NVIDIA Xavier/Nano             | ML Inferencing                                          | Limited to Cuda 10.0, Tensorflow 1.14         |
+| MyriadX (Intel Compute Stick)  | ML Inferencing                                          | OpenVINO limits to Ubuntu 16      |
+| Raspberry Pi                   | ML Inferencing                                          |                                   |
+
 
 
 * [Install brew on both MacOS and Linux](env_setup/install_0_brew.md)
