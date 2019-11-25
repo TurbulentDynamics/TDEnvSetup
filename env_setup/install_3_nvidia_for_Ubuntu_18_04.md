@@ -31,7 +31,7 @@ export PATH=/usr/local/cuda-10.0/bin:$PATH
  ## Install Jetpack SDK
 Download https://developer.nvidia.com/embedded/dlc/nv-sdk-manager
 ```
-sudo apt install ~/Downloads/sdkmanager-[version].[build#].deb 
+sudo apt install ./sdkmanager-[version].[build#].deb 
 
 #runwith sdkmanager
 ```
