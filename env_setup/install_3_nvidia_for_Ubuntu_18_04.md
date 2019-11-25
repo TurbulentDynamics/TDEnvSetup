@@ -19,7 +19,7 @@ export PATH=/usr/local/cuda-10.0/bin:$PATH
  
  
 ## Install Writable Samples
-```cuda-install-samples-10.1.sh ~/nvidia-samples-10.1```
+```cuda-install-samples-10.0.sh ~/nvidia-samples-10.0```
  
  
 ## Install some useful tools
