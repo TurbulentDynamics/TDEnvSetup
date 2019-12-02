@@ -21,9 +21,12 @@ RUN spack bootstrap
 
 #ENV CC=%gcc@8.2.0
 
+
+RUN spack install likwid htop
 #RUN spack install cmake@3.12.3${CC} openmpi@3.1.2${CC} openmpi@2.1.5${CC} mpich@3.2.1${CC}
 #RUN spack install gcc@7.3.0${CC} gcc@6.4.0${CC} gcc@5.5.0${CC} rust@1.8.0${CC}
 #RUN spack install llvm@7.0.0${CC}
+
 
 
 
