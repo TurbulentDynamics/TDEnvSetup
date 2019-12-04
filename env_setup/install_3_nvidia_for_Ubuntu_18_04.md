@@ -1,4 +1,4 @@
-# To Install cuda-10.0 and Jetpack-4.2 on Ubuntu 18.04
+# To Install cuda-10.0 and sdkmanager on Ubuntu 18.04
 # (Nvidia SDK and Xavier use cuda 10.0)
 
 ```
@@ -9,7 +9,7 @@ sudo apt-key adv --fetch-keys https://developer.download.nvidia.com/compute/cuda
 sudo add-apt-repository "deb http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/ /"
 
 sudo apt-get update
-sudo apt-get install cuda-10.0
+sudo apt-get install -y cuda-10.0
 
 export LD_LIBRARY_PATH=/usr/local/cuda-10.0/lib64:$LD_LIBRARY_PATH
 export PATH=/usr/local/cuda-10.0/bin:$PATH
@@ -28,7 +28,7 @@ export PATH=/usr/local/cuda-10.0/bin:$PATH
 ```sudo apt-get install freeglut3-dev build-essential libx11-dev libxmu-dev libxi-dev libglu1-mesa libglu1-mesa-dev```
  
  
- ## Install Jetpack SDK
+ ## Install (Jetpack) SDK Manager
 Download https://developer.nvidia.com/embedded/dlc/nv-sdk-manager
 ```
 sudo apt install ./sdkmanager-[version].[build#].deb 
