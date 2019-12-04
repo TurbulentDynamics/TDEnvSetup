@@ -43,7 +43,7 @@ deactivate
 ## Conda testing (WIP)
 ```
 brew cask install miniconda
-echo "conda deactivate">>~/.zshrc. # remove base activation when opening new terminal
+conda config --set auto_activate_base false
 conda deactivate 
 conda env create -f tdCondaBase.yaml
 ```
