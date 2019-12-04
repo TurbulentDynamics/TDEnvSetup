@@ -44,9 +44,21 @@ deactivate
 ```
 brew cask install miniconda
 echo "conda deactivate">>~/.zshrc. # remove base activation when opening new terminal
-```
-#### Example to use 
-```
+conda deactivate 
 conda env create -f tdCondaBase.yaml
+```
+
+#### Usage Examples
+```
 conda activate tdCondaBase
+conda deactivate
+
+# list all the conda environment available
+conda info --envs  
+
+# Remove environment and its dependencies
+conda remove --name envname --all
+
+# Clone an existing environment
+conda create --name clone_envname --clone envname
 ```
