@@ -27,14 +27,16 @@ vagrant up
 vagrant ssh
 ```
 
+
+# Usage Overview
 ```
-sudo singularity build td_base_ml.simg Singularity.td_base_ml
+singularity build td_base_ml.simg Singularity.td_base_ml
 ```
 
 
 ```
-sudo singularity build --sandbox td_base_ml.sandbox Singularity.td_base_ml
-sudo singularity shell --nv td_base_ml.sandbox/
+singularity build --sandbox td_base_ml.sandbox Singularity.td_base_ml
+singularity shell --nv td_base_ml.sandbox/
 ```
 
 
