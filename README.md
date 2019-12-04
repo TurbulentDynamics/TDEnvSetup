@@ -23,7 +23,7 @@ Turbulent Dynamics developes Maching Learning, MPI and iOS applications for both
 * [Install spack and some applications](env_setup/install_1_with_spack.md)
 * [Install python modules](env_setup/install_2_python_modules.md)
 
-* [Install Nvidia CUDA and tools on Ubuntu 16.04](env_setup/install_3_nvidia_for_Ubuntu_16_04.md)
+* [Install OpenVINO on Ubuntu 16.04](env_setup/install_3_OpenVINO_on_Ubuntu_16_04.md)
 * [Install Nvidia CUDA and tools on Ubuntu 18.04](env_setup/install_3_nvidia_for_Ubuntu_18_04.md)
 * [Install docker, nvidia-docker2 and run TD_Base_ML container](env_setup/install_4_nvidia_docker2_base_ml_container.md)
 * [Install singularity and run TD_Base_ML container](env_setup/install_5_singularity.md.md)
