@@ -1,0 +1,20 @@
+name: tdCondaBase
+channels:
+  - defaults
+dependencies:
+  - python=3.8.0
+  - pip=19.3.1
+  - pandas
+  - numpy
+  - scipy 
+  - matplotlib
+  - dask
+  - jupyterlab
+  - pep8
+  - coverage
+  - nose
+  - pylint
+  - sphinx
+  - sphinx_rtd_theme
+  - recommonmark
+  - tqdm
