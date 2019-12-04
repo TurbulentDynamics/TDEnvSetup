@@ -43,6 +43,7 @@ docker run --runtime=nvidia --rm nvidia/cuda nvidia-smi
 # Build container, this command will build container locally (note the ".")
 # The container will build tensorflow with native CPU flags to get all instructions working natively on the build machine.
 
+nvidia-docker build -f Dockerfile.td_base -t td_base .
 nvidia-docker build -f Dockerfile.td_base_ml -t td_base_ml .
 
 #To run the new interactive container
