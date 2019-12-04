@@ -1,5 +1,6 @@
 # Use an official Python runtime as a parent image
-From nvidia/cuda:10.1-cudnn7-devel-ubuntu18.04
+#https://hub.docker.com/r/nvidia/cuda/
+From nvidia/cuda:10.0-cudnn7-devel-ubuntu18.04
 
 # additional packages
 RUN apt update
