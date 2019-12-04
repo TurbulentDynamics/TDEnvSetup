@@ -37,3 +37,16 @@ pip3 install -r requirements.txt
 #To deactivate when needed
 deactivate
 ```
+
+
+
+## Conda testing (WIP)
+```
+brew cask install miniconda
+echo "conda deactivate">>~/.zshrc. # remove base activation when opening new terminal
+```
+#### Example to use 
+```
+conda env create -f tdCondaBase.yaml
+conda activate tdCondaBase
+```
