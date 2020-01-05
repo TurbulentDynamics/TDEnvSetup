@@ -1,4 +1,14 @@
-# Turbulent Dynamics Environment setup
+# Turbulent Dynamics
+
+Turbulent Dynamics developes Maching Learning, MPI and iOS applications for both High Performance Computing (Supercomputing), edge devices (Xavier, Raspberry PI, MyriadX) and MacOS.  Minimising system admin workload is not trivial so this guide was created to try setup a common dominator for all projects.
+
+
+1. [Environment setup](#Environment-setup)
+2. [Simple Cluster Diagnostics](#Simple-Cluster-Diagnostics)
+3. [Coding Guidelines](#Coding-Guidelines)
+
+
+# Environment setup
 Turbulent Dynamics developes Maching Learning, MPI and iOS applications for both High Performance Computing (Supercomputing) edge devices (Xavier, Raspberry PI, MyriadX) and MacOS.  Minimising system admin workload is not trivial, as different devices require a different stack, especially edge devices, and sometimes sudo is not available (on HPC systems).  This drives out environment and app choices.
 
 1. Avoid sudo installs by using Brew for basic tools.
@@ -33,9 +43,14 @@ Turbulent Dynamics developes Maching Learning, MPI and iOS applications for both
 * [(WIP) Install Swift on Ubuntu](env_setup/swift_for_ubuntu.md)
 
 
+# Simple Cluster Diagnostics
+Simple utility to check if OpenMP, MPI and cuda are working as expected.
+[Diagnostics OpenMP, MPI, GPU](diagnostics_hello_world_mpi_openmp_gpu/README.md)
 
 
-# Turbulent Dynamics Coding Guidelines
+
+
+# Coding Guidelines
 
 [View this on turbulentdynamics.github.io/dev_info/](https://turbulentdynamics.github.io/tdEnvSetup/)
 
