@@ -5,7 +5,7 @@ Turbulent Dynamics developes Maching Learning, MPI and iOS applications for both
 
 1. [Environment setup](#Environment-setup)
 2. [Simple Cluster Diagnostics](#Simple-Cluster-Diagnostics)
-3. [Coding Guidelines](#Coding-Guidelines)
+3. [Coding Guidelines](#Coding-Guidelines-and-Visualisations)
 
 
 # Environment setup
@@ -49,12 +49,9 @@ Simple utility to check if OpenMP, MPI and cuda are working as expected.
 
 
 
+# Coding Guidelines and Visualisations
 
-# Coding Guidelines
-
-[View this on turbulentdynamics.github.io/dev_info/](dev_info/index.md)
-
-### Some Visualisations
+ * [Coding guidelines](dev_info/index.md)
  * [Vector Identifiers](https://turbulentdynamics.github.io/tdEnvSetup/graphics/arrows.html) The vectors are numbered differently than usual LBM implementations
  * [Item Identifiers](https://turbulentdynamics.github.io/tdEnvSetup/graphics/cube.html) The cells in the outer shell of the lattice grid has been given an identification
  * [Visualisation 1000 cubes](https://turbulentdynamics.github.io/tdEnvSetup/graphics/1000.html)
