@@ -5,7 +5,7 @@ Turbulent Dynamics developes Maching Learning, MPI and iOS applications for both
 
 1. [Environment setup](#Environment-setup)
 2. [Simple Cluster Diagnostics](#Simple-Cluster-Diagnostics)
-3. [Coding Guidelines](#Coding-Guidelines-and-Visualisations)
+3. [Coding Guidelines and Visualisations](#Coding-Guidelines-and-Visualisations)
 
 
 # Environment setup
