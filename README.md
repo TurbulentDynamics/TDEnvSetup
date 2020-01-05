@@ -52,7 +52,7 @@ Simple utility to check if OpenMP, MPI and cuda are working as expected.
 
 # Coding Guidelines
 
-[View this on turbulentdynamics.github.io/dev_info/](https://turbulentdynamics.github.io/tdEnvSetup/)
+[View this on turbulentdynamics.github.io/dev_info/](dev_info/index.md)
 
 ### Some Visualisations
  * [Vector Identifiers](https://turbulentdynamics.github.io/tdEnvSetup/graphics/arrows.html) The vectors are numbered differently than usual LBM implementations
