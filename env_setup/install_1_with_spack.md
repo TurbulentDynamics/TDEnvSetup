@@ -27,7 +27,7 @@ CC=%gcc@8.2.0
 spack install cmake@3.12.3${CC} openmpi@3.1.2${CC} openmpi@2.1.5${CC} mpich@3.2.1${CC}
 spack install gcc@8.2.0${CC} gcc@7.3.0${CC} gcc@6.4.0${CC} gcc@5.5.0${CC} rust@1.34.0${CC}
 spack install llvm@9.0.0${CC} llvm@8.0.0${CC}
-spack install python@3.8.0${CC} python@2.7.16${CC}
+spack install python@3.8.1${CC} python@3.7.4${CC} python@2.7.16${CC}
 #spack install octave@4.2.1
 
 
@@ -46,7 +46,7 @@ spack install python@3.7.4${CC}
 
 ### For MacOS [python issue on mac](https://github.com/spack/spack/issues/2230)
 ```
-spack install python@3.7.0clang@11.0.0-apple
+spack install python@3.7.0%clang@11.0.0-apple
 ```
 
 
