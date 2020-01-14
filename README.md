@@ -29,7 +29,7 @@ Turbulent Dynamics developes Maching Learning, MPI and iOS applications for both
 
 
 
-* [Install brew on both MacOS and Linux](env_setup/install_0_brew.md)
+* [Install basics and brew on both MacOS and Linux](env_setup/install_0_basics_and_brew.md)
 * [Install spack and some applications](env_setup/install_1_with_spack.md)
 * [Install python modules](env_setup/install_2_python_modules.md)
 
