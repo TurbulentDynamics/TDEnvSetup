@@ -2,13 +2,15 @@
 
 # Switch to zsh
 ```
-sudo apt install -y zsh build-essential curl
+sudo apt install -y zsh build-essential curl wget tree vim 
 
 #To change shell to zsh
 sudo chsh -s /bin/zsh <username> 
 
 #Get oh-my-zsh
 sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+
+echo 'PROMPT="$fg[cyan]%}$USER@%{$fg[cyan]%}%m ${PROMPT}'>>~/.zshrc
 
 #Log out and log back in, and check if using zsh
 echo $0
@@ -32,6 +34,6 @@ brew update --force
 
 # Install some simple Utilities via brew
 ```
-brew install wget tree vim git iterm2
+brew install git iterm2
 ```
 
