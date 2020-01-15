@@ -11,12 +11,12 @@ wget https://bootstrap.pypa.io/get-pip.py
 python get-pip.py
 pip3 install --upgrade pip
 
-pip3 install --trusted-host pep8 coverage nose pylint sphinx sphinx_rtd_theme recommonmark tqdm
-pip3 install pandas numpy scipy matplotlib dask
-pip3 install jupyterlab
+pip3 install --trusted-host pep8 coverage nose pylint sphinx sphinx_rtd_theme recommonmark tqdm --user
+pip3 install pandas numpy scipy matplotlib dask --user
+pip3 install jupyterlab --user
 
 #Make your python life easier: https://github.com/prompt-toolkit/ptpython
-pip3 install --trusted-host ptpython
+pip3 install --trusted-host ptpython ptpython --user
 ```
 
 ## for specific projects use virtualenv
