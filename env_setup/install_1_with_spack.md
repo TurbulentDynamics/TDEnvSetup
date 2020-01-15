@@ -38,11 +38,6 @@ spack install python@3.8.1${CC} python@3.7.4${CC} python@2.7.16${CC}
 spack compiler find
 ```
 
-### For Ubuntu Linux
-```
-#spack install swift
-spack install python@3.7.4${CC} 
-```
 
 ### For MacOS [python issue on mac](https://github.com/spack/spack/issues/2230)
 ```
