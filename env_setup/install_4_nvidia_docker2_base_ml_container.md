@@ -53,7 +53,6 @@ nvidia-docker run --runtime=nvidia -it --shm-size=1g --ulimit memlock=-1 --ulimi
 
 
 #Inside the container, run a few simple tests
-import keras
 
 import torch
 torch.cuda.is_available()
