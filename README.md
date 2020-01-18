@@ -1,4 +1,14 @@
-# Turbulent Dynamics Environment setup
+# Turbulent Dynamics
+
+Turbulent Dynamics developes Maching Learning, MPI and iOS applications for both High Performance Computing (Supercomputing), edge devices (Xavier, Raspberry PI, MyriadX) and MacOS.  Minimising system admin workload is not trivial so this guide was created to try setup a common dominator for all projects.
+
+
+1. [Environment setup](#Environment-setup)
+2. [Simple Cluster Diagnostics](#Simple-Cluster-Diagnostics)
+3. [Coding Guidelines and Visualisations](#Coding-Guidelines-and-Visualisations)
+
+
+# Environment setup
 Turbulent Dynamics developes Maching Learning, MPI and iOS applications for both High Performance Computing (Supercomputing) edge devices (Xavier, Raspberry PI, MyriadX) and MacOS.  Minimising system admin workload is not trivial, as different devices require a different stack, especially edge devices, and sometimes sudo is not available (on HPC systems).  This drives out environment and app choices.
 
 1. Avoid sudo installs by using Brew for basic tools.
@@ -19,7 +29,7 @@ Turbulent Dynamics developes Maching Learning, MPI and iOS applications for both
 
 
 
-* [Install brew on both MacOS and Linux](env_setup/install_0_brew.md)
+* [Install basics and brew on both MacOS and Linux](env_setup/install_0_basics_and_brew.md)
 * [Install spack and some applications](env_setup/install_1_with_spack.md)
 * [Install python modules](env_setup/install_2_python_modules.md)
 
@@ -33,13 +43,15 @@ Turbulent Dynamics developes Maching Learning, MPI and iOS applications for both
 * [(WIP) Install Swift on Ubuntu](env_setup/swift_for_ubuntu.md)
 
 
+# Simple Cluster Diagnostics
+Simple utility to check if OpenMP, MPI and cuda are working as expected.
+[Diagnostics OpenMP, MPI, GPU](diagnostics_hello_world_mpi_openmp_gpu/README.md)
 
 
-# Turbulent Dynamics Coding Guidelines
 
-[View this on turbulentdynamics.github.io/dev_info/](https://turbulentdynamics.github.io/tdEnvSetup/)
+# Coding Guidelines and Visualisations
 
-### Some Visualisations
+ * [Coding guidelines](dev_info/index.md)
  * [Vector Identifiers](https://turbulentdynamics.github.io/tdEnvSetup/graphics/arrows.html) The vectors are numbered differently than usual LBM implementations
  * [Item Identifiers](https://turbulentdynamics.github.io/tdEnvSetup/graphics/cube.html) The cells in the outer shell of the lattice grid has been given an identification
  * [Visualisation 1000 cubes](https://turbulentdynamics.github.io/tdEnvSetup/graphics/1000.html)
