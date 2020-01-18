@@ -5,7 +5,7 @@
 #update-alternatives --install /usr/bin/python python /usr/bin/python3 10
 
 module purge
-echo "spack load python@3.8.0">>~/.zshrc
+echo "spack load python@3.8.1">>~/.zshrc
 source ~/.zshrc
 wget https://bootstrap.pypa.io/get-pip.py
 python get-pip.py
