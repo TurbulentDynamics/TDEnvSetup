@@ -1,4 +1,4 @@
-# Basica and the only apps to be installed by apt
+# Basics and the only apps to be installed by apt
 ```
 sudo apt install -y zsh build-essential curl wget tree vim 
 
