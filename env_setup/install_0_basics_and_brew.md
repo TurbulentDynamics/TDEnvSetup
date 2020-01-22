@@ -3,7 +3,7 @@
 sudo apt install -y zsh build-essential curl wget tree vim 
 
 #Ensure default python is python3
-update-alternatives --install /usr/bin/python python /usr/bin/python3 10
+sudo update-alternatives --install /usr/bin/python python /usr/bin/python3 10
 ```
 
 # Switch to zsh
