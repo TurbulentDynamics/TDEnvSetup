@@ -1,6 +1,6 @@
 # Basics and the only apps to be installed by apt
 ```
-sudo apt install -y zsh build-essential curl wget tree vim 
+sudo apt install -y zsh build-essential curl wget tree vim openssh-server
 
 #Ensure default python is python3
 sudo update-alternatives --install /usr/bin/python python /usr/bin/python3 10
