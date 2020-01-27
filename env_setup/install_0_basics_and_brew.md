@@ -16,7 +16,7 @@ sudo chsh -s /bin/zsh <username>
 #Get oh-my-zsh
 sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
-echo 'PROMPT="$fg[cyan]%}$USER@%{$fg[cyan]%}%m ${PROMPT}'>>~/.zshrc
+echo 'PROMPT="$fg[cyan]%}$USER@%{$fg[cyan]%}%m ${PROMPT}"'>>~/.zshrc
 
 #Log out and log back in, and check if using zsh
 echo $0
