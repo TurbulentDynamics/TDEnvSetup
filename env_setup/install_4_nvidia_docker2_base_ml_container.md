@@ -41,16 +41,16 @@ docker run --runtime=nvidia --rm nvidia/cuda nvidia-smi
 ## Working with Container
 ```
 # Build container, this command will build container locally (note the ".")
-# The container will build tensorflow with native CPU flags to get all instructions working natively on the build machine.
-# NOTE: these containers occupy a lot of space, 10's of GBs (or even 100 GB), so ensure there is sufficient free space
+ # The container will build tensorflow with native CPU flags to get all instructions working natively on the build machine.
+ # NOTE: these containers occupy a lot of space, 10's of GBs (or even 100 GB), so ensure there is sufficient free space
 
 nvidia-docker build -f Dockerfile.td_base -t td_base .
 nvidia-docker build -f Dockerfile.td_base_nvidia_ml -t td_base_nvidia_ml .
 
 #To run the new interactive container
-#Use --privileged if access needed to OTHER devices like USB drives.
-# NOTE: -v flag and the text that follows allows the user to mount the specified directory so it can be easily used by the docker container
+ #Use --privileged if access needed to OTHER devices like USB drives.
 
+ # NOTE: -v flag and the text that follows allows the user to mount the specified directory so it can be easily used by the docker container
 nvidia-docker run --runtime=nvidia -it --shm-size=1g --ulimit memlock=-1 --ulimit stack=67108864 -v /opt/path/to/fast/storage:/ml_data td_base_nvidia_ml
 
 
