@@ -24,10 +24,11 @@ spack compiler find
 
 CC=%gcc@8.2.0
 
-spack install cmake@3.16.2${CC} cmake@3.12.3${CC} openmpi@3.1.2${CC} openmpi@2.1.5${CC} mpich@3.2.1${CC}
-spack install gcc@8.2.0${CC} gcc@7.3.0${CC} gcc@6.4.0${CC} gcc@5.5.0${CC} rust@1.34.0${CC}
+spack install cmake@3.15.4${CC} cmake@3.12.3${CC}
+apsck install openmpi@4.0.1${CC} openmpi@3.1.2${CC} openmpi@2.1.5${CC} mpich@3.2.1${CC}
+spack install gcc@9.2.0${CC} gcc@8.2.0${CC} gcc@7.3.0${CC} gcc@6.4.0${CC} gcc@5.5.0${CC} rust@1.34.0${CC}
 spack install llvm@9.0.0${CC}
-spack install python@3.8.1${CC} python@3.7.4${CC} python@2.7.16${CC}
+spack install python@3.8.0${CC} python@3.7.0${CC} python@2.7.16${CC}
 #spack install octave@4.2.1
 
 
