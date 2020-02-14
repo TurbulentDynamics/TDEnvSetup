@@ -18,11 +18,11 @@ spack bootstrap
 ## Installing applications with spack
 ```
 #Cuda 10 limits gcc version to 8
-spack install gcc@8.2.0 
-spack load gcc@8.2.0
+spack install gcc@8.3.0 
+spack load gcc@8.3.0
 spack compiler find
 
-CC=%gcc@8.2.0
+CC=%gcc@8.3.0
 
 spack install cmake@3.15.4${CC} cmake@3.12.3${CC}
 apsck install openmpi@4.0.1${CC} openmpi@3.1.2${CC} openmpi@2.1.5${CC} mpich@3.2.1${CC}
