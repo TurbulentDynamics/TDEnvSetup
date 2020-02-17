@@ -31,6 +31,8 @@ spack install llvm@9.0.0${CC}
 spack install python@3.8.0${CC} python@3.7.0${CC} python@2.7.16${CC}
 #spack install octave@4.2.1
 
+#Interesting HPC tools
+spack install likwid
 
 #Download pgi from pgroup.com and from the download directory
 #spack install pgi
