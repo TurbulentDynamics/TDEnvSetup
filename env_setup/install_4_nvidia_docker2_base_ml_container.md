@@ -14,6 +14,7 @@ sudo apt-get install -y docker-ce docker-ce-cli containerd.io
 
 #sudo groupadd docker
 sudo usermod -aG docker $USER
+#log out (or sometimes even restart) needed to continue normally
 
 #Enable docker to run at startup
 sudo systemctl enable docker
