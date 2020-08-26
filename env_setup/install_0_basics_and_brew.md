@@ -26,7 +26,7 @@ echo $0
 # Brew is used to install simple utilities without sudo to home directory
 ## Get Brew on MacOS
 ```
-/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 ```
 
 ## Get Brew on Linux
