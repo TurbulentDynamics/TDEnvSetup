@@ -1,6 +1,6 @@
 # Turbulent Dynamics Cluster Hello World
 
-See (https://github.com/TurbulentDynamics/TD_env_setup_dev_info)[https://github.com/TurbulentDynamics/TD_env_setup_dev_info] for help to install and setup.
+See (https://github.com/TurbulentDynamics/edEnvSetup)[https://github.com/TurbulentDynamics/edEnvSetup] for help to install and setup.
 
 # Get Started
 ```
