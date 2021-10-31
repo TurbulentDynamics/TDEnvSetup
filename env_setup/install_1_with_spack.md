@@ -6,29 +6,30 @@
 ## Installing spack
 ```
 cd ~
-git clone https://github.com/spack/spack.git
+git clone https://github.com/spack/spack.git --single-branch
 
 echo 'export SPACK_ROOT=~/spack'>>~/.zshrc
 echo 'export PATH=$SPACK_ROOT/bin:$PATH'>>~/.zshrc
 echo '. $SPACK_ROOT/share/spack/setup-env.sh'>>~/.zshrc
 . ~/.zshrc
-spack bootstrap
+#spack bootstrap
 ```
 
 ## Installing applications with spack
 ```
-#Cuda 10 limits gcc version to 8
-spack install gcc@8.3.0 
-module load gcc@8.3.0
+#Cuda 11.5 works with gcc 10
+#https://docs.nvidia.com/cuda/cuda-toolkit-release-notes/index.html#title-new-cuda-tools
+spack install gcc@10.3.0 
 spack compiler find
 
-CC=%gcc@8.3.0
+CC=%gcc@10.3.0
 
-spack install cmake@3.16.2${CC} cmake@3.12.3${CC}
-apsck install openmpi@4.0.1${CC} openmpi@3.1.2${CC} openmpi@2.1.5${CC} mpich@3.2.1${CC}
-spack install gcc@9.2.0${CC} gcc@8.2.0${CC} gcc@7.3.0${CC} gcc@6.4.0${CC} gcc@5.5.0${CC} rust@1.34.0${CC}
-spack install llvm@9.0.0${CC}
-spack install python@3.8.0${CC} python@3.7.0${CC} python@2.7.16${CC}
+spack install cmake@3.21.4${CC}
+spack install openmpi@4.1.1${CC} openmpi@3.1.6${CC} openmpi@2.1.6${CC} mpich@3.4.2${CC}
+spack install gcc@9.4.0${CC} gcc@8.5.0${CC} gcc@7.5.0${CC} gcc@6.5.0${CC} gcc@5.5.0${CC} 
+spack insall rust@1.51.0${CC}
+spack install llvm@13.0.0${CC}
+
 #spack install octave@4.2.1
 
 #Interesting HPC tools
@@ -38,14 +39,9 @@ spack install likwid
 #spack install pgi
 
 #To update all available compilers
-spack compiler find
+#spack compiler find
 ```
 
-
-### For MacOS [python issue on mac](https://github.com/spack/spack/issues/2230)
-```
-spack install python@3.7.0%clang@11.0.0-apple
-```
 
 
 
