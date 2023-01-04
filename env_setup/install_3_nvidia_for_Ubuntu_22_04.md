@@ -1,18 +1,18 @@
 # To Install cuda-11.8 Ubuntu 22.04
-# (Nvidia SDK and Xavier use cuda 9.4)
 
 ```
-sudo apt-get install linux-headers-$(uname -r)
-wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/cuda-ubuntu1804.pin
-sudo mv cuda-ubuntu1804.pin /etc/apt/preferences.d/cuda-repository-pin-600
-sudo apt-key adv --fetch-keys https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/7fa2af80.pub
-sudo add-apt-repository "deb http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/ /"
+sudo apt-get install linux-headers-(uname -r)
 
-sudo apt-get update
-sudo apt-get install -y cuda-10.0
+wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2204/x86_64/cuda-ubuntu2204.pin
+sudo mv cuda-ubuntu2204.pin /etc/apt/preferences.d/cuda-repository-pin-600
+wget https://developer.download.nvidia.com/compute/cuda/12.0.0/local_installers/cuda-repo-ubuntu2204-12-0-local_12.0.0-525.60.13-1_amd64.deb
+sudo dpkg -i cuda-repo-ubuntu2204-12-0-local_12.0.0-525.60.13-1_amd64.deb
+sudo cp /var/cuda-repo-ubuntu2204-12-0-local/cuda-*-keyring.gpg /usr/share/keyrings/
 
-export LD_LIBRARY_PATH=/usr/local/cuda-10.0/lib64:$LD_LIBRARY_PATH
-export PATH=/usr/local/cuda-10.0/bin:$PATH
+set -Ux LD_LIBRARY_PATH /usr/local/cuda/lib64
+echo set -Ux LD_LIBRARY_PATH /usr/local/cuda/lib64>>~/.config/fish/config.fish
+fish_add_path /usr/local/cuda-12.0/bin
+echo fish_add_path /usr/local/cuda-12.0/bin>>~/.config/fish/config.fish
 ```
 
 
@@ -21,7 +21,7 @@ export PATH=/usr/local/cuda-10.0/bin:$PATH
  
  
 ## Install Writable Samples
-```cuda-install-samples-10.0.sh ~/nvidia-samples-10.0```
+```cuda-install-samples-12.0.sh ~/nvidia-samples-12.0```
  
  
 ## Install some useful tools
