@@ -1,7 +1,7 @@
-# Ubuntu 22 Basics and the only apps to be installed by apt
+# Ubuntu 22 Basics
 ```
-sudo apt install -y fish build-essential curl wget tree vim openssh-server python3-venv
-
+sudo apt install -y git fish curl wget tree vim openssh-server python3-venv unzip
+sudo apt install -y binutils build-essential ca-certificates gnupg gnupg2 lsb-release tzdata
 ```
 
 # Switch to fish
@@ -17,7 +17,21 @@ echo $0
 # Install extra languages
 ```
 #Install Swift on Linux
-
+apt-get install libc6-dev \
+          libcurl4-openssl-dev \
+          libedit2 \
+          libgcc-9-dev \
+          libpython3.8 \
+          libsqlite3-0 \
+          libstdc++-9-dev \
+          libxml2-dev \
+          libz3-dev \
+          pkg-config \
+          zlib1g-dev
+wget https://download.swift.org/swift-5.7.2-release/ubuntu2204/swift-5.7.2-RELEASE/swift-5.7.2-RELEASE-ubuntu22.04.tar.gz
+tar xzf swift-<VERSION>-<PLATFORM>.tar.gz
+fish_add_path swift-5.7.2-ubuntu22.04/bin
+echo fish_add_path >>~/.config/fish/config.fish
 
 #Install Rust
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
@@ -25,9 +39,6 @@ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 #Install Haskell
 curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh
 ```
-
-
-
 
 
 # Brew is used to install simple utilities without sudo to home directory
@@ -43,11 +54,5 @@ echo 'eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)' >>~/.zshrc
 echo 'PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"'>>~/.zshrc
 sudo apt install -y linuxbrew-wrapper
 brew update --force
-```
-
-
-# Install some simple Utilities via brew
-```
-brew install git iterm2
 ```
 
