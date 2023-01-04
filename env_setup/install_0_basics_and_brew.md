@@ -1,24 +1,17 @@
-# Basics and the only apps to be installed by apt
+# Ubuntu 22 Basics and the only apps to be installed by apt
 ```
-sudo apt install -y zsh build-essential curl wget tree vim openssh-server
+sudo apt install -y fish build-essential curl wget tree vim openssh-server python3-venv
 
-#Ensure default python is python3
-sudo update-alternatives --install /usr/bin/python python /usr/bin/python3 10
 ```
 
-# Switch to zsh
+# Switch to fish
 ```
-sudo apt install -y zsh
+sudo apt install -y fish
 
-#To change shell to zsh
-sudo chsh -s /bin/zsh <username> 
+#To change shell to fish
+sudo chsh -s /bin/fish <username> 
 
-#Get oh-my-zsh
-sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-
-echo 'PROMPT="$fg[cyan]%}$USER@%{$fg[cyan]%}%m ${PROMPT}"'>>~/.zshrc
-
-#Log out and log back in, and check if using zsh
+#Log out and log back in, and check if using fish
 echo $0
 ```
 

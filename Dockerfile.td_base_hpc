@@ -4,7 +4,7 @@ FROM turbulentdynamics/td_base
 
 
 #install spack
-RUN git clone https://github.com/spack/spack.git
+RUN git clone -c feature.manyFiles=true https://github.com/spack/spack.git --single-branch --branch releases/lates
 RUN echo 'export SPACK_ROOT=~/spack'>>~/.zshrc
 RUN echo 'export PATH=$SPACK_ROOT/bin:$PATH'>>~/.zshrc
 RUN echo '. $SPACK_ROOT/share/spack/setup-env.sh'>>~/.zshrc
@@ -13,24 +13,21 @@ ENV SPACK_ROOT="~/spack"
 ENV PATH="$SPACK_ROOT/bin:$PATH"
 CMD [".", "$SPACK_ROOT/share/spack/setup-env.sh"]
 
-RUN spack bootstrap
 
-#RUN spack install gcc@8.2.0 
-#RUN spack load gcc@8.2.0
-#RUN spack compiler find
+RUN spack install gcc@11.2.0 
+RUN spack load gcc@11.2.0
+RUN spack compiler find
 
-#ENV CC=%gcc@8.2.0
+ENV CC=%gcc@11.2.0
 
+RUN spack install cmake@3.21.4${CC}
+RUN spack install openmpi@4.1.1${CC} mpich@4.0.2${CC}
+RUN spack install rust@1.58.1${CC}
+
+#Older optional versions
+#RUN spack install openmpi@3.1.0${CC} openmpi@2.1.6${CC} mpich@3.4.3${CC}
+#RUN spack install gcc@10.4.0${CC} gcc@9.4.0${CC} gcc@8.5.0${CC} gcc@7.5.0${CC}
+#RUN spack install llvm@15.0.3${CC}
 
 RUN spack install likwid htop
-#RUN spack install cmake@3.12.3${CC} openmpi@3.1.2${CC} openmpi@2.1.5${CC} mpich@3.2.1${CC}
-#RUN spack install gcc@7.3.0${CC} gcc@6.4.0${CC} gcc@5.5.0${CC} rust@1.8.0${CC}
-#RUN spack install llvm@7.0.0${CC}
-
-
-
-
-
-
-
 
