@@ -14,6 +14,20 @@ sudo chsh -s /bin/fish <username>
 #Log out and log back in, and check if using fish
 echo $0
 ```
+# Install extra languages
+```
+#Install Swift on Linux
+
+
+#Install Rust
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+
+#Install Haskell
+curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh
+```
+
+
+
 
 
 # Brew is used to install simple utilities without sudo to home directory
