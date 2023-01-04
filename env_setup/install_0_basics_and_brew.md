@@ -17,21 +17,11 @@ echo $0
 # Install extra languages
 ```
 #Install Swift on Linux
-apt-get install libc6-dev \
-          libcurl4-openssl-dev \
-          libedit2 \
-          libgcc-9-dev \
-          libpython3.8 \
-          libsqlite3-0 \
-          libstdc++-9-dev \
-          libxml2-dev \
-          libz3-dev \
-          pkg-config \
-          zlib1g-dev
+sudo apt-get install libc6-dev libcurl4-openssl-dev libedit2 libgcc-9-dev libpython3.8 libsqlite3-0 libstdc++-9-dev libxml2-dev libz3-dev pkg-config zlib1g-dev
 wget https://download.swift.org/swift-5.7.2-release/ubuntu2204/swift-5.7.2-RELEASE/swift-5.7.2-RELEASE-ubuntu22.04.tar.gz
-tar xzf swift-<VERSION>-<PLATFORM>.tar.gz
-fish_add_path swift-5.7.2-ubuntu22.04/bin
-echo fish_add_path >>~/.config/fish/config.fish
+tar xzf swift-5.7.2-RELEASE-ubuntu22.04.tar.gz
+fish_add_path swift-5.7.2-RELEASE-ubuntu22.04/usr/bin
+echo fish_add_path swift-5.7.2-RELEASE-ubuntu22.04/usr/bin>>~/.config/fish/config.fish
 
 #Install Rust
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
