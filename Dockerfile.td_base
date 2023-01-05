@@ -8,13 +8,6 @@ RUN apt install -y build-essential clang libicu-dev
 RUN apt install -y python3-dev fish
 
 
-# Install Apple Swift
-#ARG SWIFT=swift-5.7.1
-#RUN wget https://download.swift.org/swift-5.7.1-release/ubuntu2204/swift-5.7.1-RELEASE/swift-5.7.1-RELEASE-ubuntu22.04.tar.gz
-#RUN tar xzf $SWIFT-RELEASE-ubuntu22.04.tar.gz -C /opt
-
-
-
 #Setup a user for inside the container
 RUN useradd -ms /bin/zsh tduser
 RUN echo "tduser:tduser" | chpasswd && adduser tduser sudo 
@@ -23,10 +16,9 @@ USER tduser
 WORKDIR /home/tduser
 
 # Define environment variable
-ENV SHELL=/bin/zsh
+ENV SHELL=/bin/fish
 ENV export SHELL
 ENV export LC_ALL=C
-ENV PATH=/opt/$SWIFT-RELEASE-ubuntu22.04/usr/bin:"${PATH}"
 ENV PATH="/home/tduser/.local/bin:${PATH}"
 
 
